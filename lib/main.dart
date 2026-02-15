@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'core/routes/app_router.dart';
 import 'core/routes/routes.dart';
-import 'core/theme/app_theme.dart';
 import 'core/di/injection_container.dart' as di;
 import 'core/localization/localization_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -53,8 +52,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Flutter Forge App',
           debugShowCheckedModeBanner: false,
-          theme: AppTheme.lightTheme,
-          darkTheme: AppTheme.darkTheme,
+          // theme: AppTheme.lightTheme,
+          // darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.system,
           initialRoute: Routes.home,
           onGenerateRoute: AppRouter.generateRoute,
