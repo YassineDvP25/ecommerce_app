@@ -1,3 +1,4 @@
+// import 'package:ecommerce/core/utils/assets.dart';
 // import 'package:flutter/material.dart';
 
 // class PromoSlider extends StatefulWidget {
@@ -86,8 +87,8 @@
 //                           ],
 //                         ),
 //                       ),
-//                       Image.network(
-//                         "https://i.imgur.com/8Km9tLL.png",
+//                       Image.asset(
+//                         Assets.product1,
 //                         width: 90 * widget.scale,
 //                       )
 //                     ],
