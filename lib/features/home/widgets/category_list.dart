@@ -1,88 +1,90 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// class CategoryList extends StatefulWidget {
-//   final double scale;
-//   const CategoryList({super.key, required this.scale});
+class CategorySelector extends StatefulWidget {
+  const CategorySelector({super.key});
 
-//   @override
-//   State<CategoryList> createState() => _CategoryListState();
-// }
+  @override
+  State<CategorySelector> createState() => _CategorySelectorState();
+}
 
-// class _CategoryListState extends State<CategoryList> {
-//   int selectedIndex = 0;
+class _CategorySelectorState extends State<CategorySelector> {
+  // لاحظ: العنصر الأول مميز في التصميم، الباقي دوائر فقط
+  final List<Map<String, dynamic>> categories = [
+    {"icon": Icons.local_fire_department, "label": "Popular"},
+    {"icon": Icons.checkroom, "label": "Apparel"}, // لن يظهر النص
+    {"icon": Icons.sports_baseball, "label": "Sports"}, // لن يظهر النص
+    {"icon": Icons.backpack, "label": "Bag"}, // لن يظهر النص
+    {"icon": Icons.videogame_asset, "label": "Games"}, // لن يظهر النص
+  ];
 
-//   final List<Map<String, dynamic>> categories = [
-//     {"icon": Icons.local_fire_department, "label": "Popular"},
-//     {"icon": Icons.checkroom, "label": "Apparel"},
-//     {"icon": Icons.directions_run, "label": "Shoes"},
-//     {"icon": Icons.watch, "label": "Accessories"},
-//     {"icon": Icons.sports_esports, "label": "Gaming"},
-//   ];
+  int selectedIndex = 0;
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox(
-//       height: 60 * widget.scale,
-//       child: ListView.separated(
-//         padding:
-//             EdgeInsets.symmetric(horizontal: 20 * widget.scale),
-//         scrollDirection: Axis.horizontal,
-//         itemCount: categories.length,
-//         separatorBuilder: (_, __) =>
-//             SizedBox(width: 12 * widget.scale),
-//         itemBuilder: (context, index) {
-//           final isSelected = selectedIndex == index;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 70, // ارتفاع كافٍ للظلال
+      child: ListView.separated(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        scrollDirection: Axis.horizontal,
+        itemCount: categories.length,
+        separatorBuilder: (_, __) => const SizedBox(width: 16),
+        itemBuilder: (context, index) {
+          bool isSelected = selectedIndex == index;
+          return GestureDetector(
+            onTap: () => setState(() => selectedIndex = index),
+            child:
+                isSelected
+                    ? _buildActivePill(categories[index])
+                    : _buildInactiveCircle(categories[index]),
+          );
+        },
+      ),
+    );
+  }
 
-//           return GestureDetector(
-//             onTap: () {
-//               setState(() => selectedIndex = index);
-//             },
-//             child: AnimatedContainer(
-//               duration: const Duration(milliseconds: 300),
-//               padding: EdgeInsets.symmetric(
-//                 horizontal: 18 * widget.scale,
-//               ),
-//               decoration: BoxDecoration(
-//                 color: isSelected
-//                     ? Colors.black
-//                     : Colors.white,
-//                 borderRadius:
-//                     BorderRadius.circular(30),
-//                 boxShadow: [
-//                   if (!isSelected)
-//                     BoxShadow(
-//                       color:
-//                           Colors.black.withOpacity(.05),
-//                       blurRadius: 8,
-//                     )
-//                 ],
-//               ),
-//               child: Row(
-//                 children: [
-//                   Icon(
-//                     categories[index]["icon"],
-//                     size: 18 * widget.scale,
-//                     color: isSelected
-//                         ? Colors.white
-//                         : Colors.black,
-//                   ),
-//                   SizedBox(width: 8 * widget.scale),
-//                   Text(
-//                     categories[index]["label"],
-//                     style: TextStyle(
-//                       fontWeight: FontWeight.w600,
-//                       color: isSelected
-//                           ? Colors.white
-//                           : Colors.black,
-//                       fontSize: 13 * widget.scale,
-//                     ),
-//                   )
-//                 ],
-//               ),
-//             ),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
+  // الشكل النشط (كبسولة سوداء مع أيقونة برتقالية)
+  Widget _buildActivePill(Map<String, dynamic> item) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(6, 6, 20, 6),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: const Color(0xFF1F2024),
+        borderRadius: BorderRadius.circular(40),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            child: Icon(item['icon'], color: Colors.deepOrange, size: 20),
+          ),
+          const SizedBox(width: 10),
+          Text(
+            item['label'],
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 15,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // الشكل غير النشط (دائرة بيضاء فقط)
+  Widget _buildInactiveCircle(Map<String, dynamic> item) {
+    return Container(
+      width: 52,
+      height: 52,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        shape: BoxShape.circle,
+      ),
+      child: Icon(item['icon'], color: Colors.black, size: 24),
+    );
+  }
+}
