@@ -1,67 +1,43 @@
-// import 'package:flutter/material.dart';
+import 'package:ecommerce/features/home/widgets/product_card.dart';
+import 'package:flutter/material.dart';
 
-// class ProductGrid extends StatelessWidget {
-//   final double scale;
-//   const ProductGrid({super.key, required this.scale});
+class ProductGridSliver extends StatelessWidget {
+  const ProductGridSliver({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     final width = MediaQuery.of(context).size.width;
+  @override
+  Widget build(BuildContext context) {
+     final products = [
+      ProductModel(
+        name: 'Nike Kobe 5 Pro...',
+        price: 120,
+        rating: 5.0,
+        imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400',
+        isFavorite: false,
+      ),
+      ProductModel(
+        name: 'Nick Hoops Elite',
+        price: 40,
+        rating: 5.0,
+        imageUrl: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400',
+        isFavorite: false,
+      ),
+    ];
 
-//     int crossAxisCount = width < 400
-//         ? 2
-//         : width < 600
-//             ? 3
-//             : 4;
-
-//     return SliverPadding(
-//       padding: EdgeInsets.all(20 * scale),
-//       sliver: SliverGrid(
-//         delegate: SliverChildBuilderDelegate(
-//           (context, index) => const ProductCard(),
-//           childCount: 8,
-//         ),
-//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//           crossAxisCount: crossAxisCount,
-//           mainAxisSpacing: 16 * scale,
-//           crossAxisSpacing: 16 * scale,
-//           childAspectRatio: .72,
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-// class ProductCard extends StatelessWidget {
-//   const ProductCard({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       decoration: BoxDecoration(
-//         color: Colors.white,
-//         borderRadius: BorderRadius.circular(22),
-//         boxShadow: [
-//           BoxShadow(
-//             color: Colors.black.withOpacity(.04),
-//             blurRadius: 12,
-//           )
-//         ],
-//       ),
-//       padding: const EdgeInsets.all(14),
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: const [
-//           Expanded(child: Placeholder()),
-//           SizedBox(height: 10),
-//           Text("Pullover Hoodie",
-//               style: TextStyle(fontWeight: FontWeight.w600)),
-//           SizedBox(height: 5),
-//           Text("\$55",
-//               style:
-//                   TextStyle(fontWeight: FontWeight.bold)),
-//         ],
-//       ),
-//     );
-//   }
-// }
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      sliver: SliverGrid(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 16,
+          crossAxisSpacing: 16,
+          childAspectRatio:
+              0.62, // نسبة الطول للعرض (تم تعديلها لتطابق الصورة الطويلة)
+        ),
+        delegate: SliverChildBuilderDelegate((context, index) {
+          final p = products[index % products.length];
+          return ProductCard(p);
+        }, childCount: products.length),
+      ),
+    );
+  }
+}

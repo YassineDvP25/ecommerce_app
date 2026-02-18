@@ -83,9 +83,9 @@ flutter:
     - assets/fonts/
     - assets/icons/
 
-  # fonts:
-  #   - family: CustomFont
-  #     fonts:
-  #       - asset: assets/fonts/CustomFont-Regular.ttf
-  #       - asset: assets/fonts/CustomFont-Bold.ttf
-  #         weight: 700
+  fonts:
+    - family: SofiaSans
+      fonts:
+        - asset: assets/fonts/SofiaSans-Italic-VariableFont_wght.ttf
+        - asset: assets/fonts/SofiaSans-VariableFont_wght.ttf
+          weight: 700

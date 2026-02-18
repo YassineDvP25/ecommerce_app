@@ -1,67 +1,64 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// class HomeHeader extends StatelessWidget {
-//   final double scale;
-//   const HomeHeader({super.key, required this.scale});
+class CustomHeader extends StatelessWidget {
+  const CustomHeader({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: EdgeInsets.symmetric(
-//           horizontal: 20 * scale, vertical: 16 * scale),
-//       child: Row(
-//         children: [
-//           CircleAvatar(
-//             radius: 22 * scale,
-//             backgroundImage:
-//                 const NetworkImage("https://i.pravatar.cc/150?img=12"),
-//           ),
-//           SizedBox(width: 12 * scale),
-//           Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             children: [
-//               Text(
-//                 "Billy Hanson",
-//                 style: TextStyle(
-//                   fontSize: 16 * scale,
-//                   fontWeight: FontWeight.w700,
-//                 ),
-//               ),
-//               SizedBox(height: 4 * scale),
-//               Text(
-//                 "Welcome Back",
-//                 style: TextStyle(
-//                   fontSize: 12 * scale,
-//                   color: Colors.grey,
-//                 ),
-//               ),
-//             ],
-//           ),
-//           const Spacer(),
-//           _icon(Icons.favorite_border, scale),
-//           SizedBox(width: 12 * scale),
-//           _icon(Icons.notifications_none, scale),
-//         ],
-//       ),
-//     );
-//   }
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            const CircleAvatar(
+              radius: 26,
+              backgroundImage: NetworkImage('https://i.pravatar.cc/300?img=11'),
+            ),
+            const SizedBox(width: 14),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  "Billy Hanson",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18,
+                    color: Colors.black,
+                  ),
+                ),
+                Text(
+                  "Welcome Back",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            _headerIconBtn(Icons.favorite_border),
+            const SizedBox(width: 12),
+            _headerIconBtn(Icons.notifications_none),
+          ],
+        ),
+      ],
+    );
+  }
 
-//   Widget _icon(IconData icon, double scale) {
-//     return Container(
-//       height: 42 * scale,
-//       width: 42 * scale,
-//       decoration: BoxDecoration(
-//         color: Colors.white,
-//         borderRadius: BorderRadius.circular(14 * scale),
-//         boxShadow: [
-//           BoxShadow(
-//             color: Colors.black.withOpacity(.05),
-//             blurRadius: 10,
-//             offset: const Offset(0, 4),
-//           )
-//         ],
-//       ),
-//       child: Icon(icon, size: 20 * scale),
-//     );
-//   }
-// }
+  Widget _headerIconBtn(IconData icon) {
+    return Container(
+      width: 45,
+      height: 45,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        shape: BoxShape.circle,
+        border: Border.all(color: Colors.grey.withOpacity(0.2)),
+      ),
+      child: Icon(icon, size: 22, color: Colors.black),
+    );
+  }
+}
