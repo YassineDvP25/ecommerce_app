@@ -24,15 +24,22 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
 
     return Padding(
       padding: EdgeInsets.only(
-        left: 5 * scale,
-        right: 5 * scale,
+        left: 10 * scale,
+        right: 10 * scale,
         bottom: 20 * scale,
       ),
       child: Container(
-        height: 70 * scale,
+        height: 65 * scale,
         decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(40),
+  gradient: LinearGradient(
+                  colors: [
+                    Color(0xFF000000), // لون رمادي أغمق
+
+                    Color(0xFF606060), // لون رمادي أغمق
+                  ],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                ),          borderRadius: BorderRadius.circular(40),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(.25),
@@ -42,7 +49,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
           ],
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: List.generate(
             icons.length,
             (index) => GestureDetector(
@@ -53,9 +60,9 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                 duration: const Duration(milliseconds: 300),
                 padding: EdgeInsets.symmetric(
                   horizontal: selectedIndex == index
-                      ? 18 * scale
+                      ? 16 * scale
                       : 0,
-                  vertical: 10 * scale,
+                  vertical: 14 * scale,
                 ),
                 decoration: BoxDecoration(
                   color: selectedIndex == index
@@ -70,16 +77,16 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                       color: selectedIndex == index
                           ? Colors.black
                           : Colors.white,
-                      size: 22 * scale,
+                      size: 24 * scale,
                     ),
                     if (selectedIndex == index)
                       Padding(
-                        padding: EdgeInsets.only(left: 8 * scale),
+                        padding: EdgeInsets.only(left: 4 * scale),
                         child: Text(
                           _label(index),
                           style: TextStyle(
                             color: Colors.black,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.bold,
                             fontSize: 13 * scale,
                           ),
                         ),

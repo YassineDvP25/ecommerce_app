@@ -22,7 +22,7 @@ class _CategorySelectorState extends State<CategorySelector> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 70, // ارتفاع كافٍ للظلال
+      height: 50, // ارتفاع كافٍ للظلال
       child: ListView.separated(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         scrollDirection: Axis.horizontal,
@@ -48,7 +48,15 @@ class _CategorySelectorState extends State<CategorySelector> {
       padding: const EdgeInsets.fromLTRB(6, 6, 20, 6),
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: const Color(0xFF1F2024),
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFF000000), // لون رمادي أغمق
+
+            Color(0xFF606060), // لون رمادي أغمق
+          ],
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+        ),
         borderRadius: BorderRadius.circular(40),
       ),
       child: Row(
