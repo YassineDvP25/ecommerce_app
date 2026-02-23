@@ -23,7 +23,7 @@ class CustomHeader extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 18,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                 ),
                 Text(

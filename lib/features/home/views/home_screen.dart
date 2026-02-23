@@ -9,8 +9,6 @@ import 'package:ecommerce/features/home/widgets/search_section.dart';
 import 'package:ecommerce/features/home/widgets/section_header.dart';
 import 'package:flutter/material.dart';
 
-
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -19,22 +17,52 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+          // Card(
+          //   margin: EdgeInsets.zero,
+          //   shape: const RoundedRectangleBorder(
+          //     borderRadius: BorderRadius.only(
+          //       bottomLeft: Radius.circular(30),
+          //       bottomRight: Radius.circular(30),
+          //     ),
+          //   ),
+          //   child: Container(
+          //     height: 200,
+          //     decoration: const BoxDecoration(
+          //       // gradient
+          //       gradient: LinearGradient(
+          //         colors: [
+          //           Color(0xFF000000), // لون رمادي أغمق
+
+          //           Color(0xFF606060), // لون رمادي أغمق
+          //         ],
+          //         begin: Alignment.bottomCenter,
+          //         end: Alignment.topCenter,
+          //       ),
+          //       borderRadius: BorderRadius.only(
+          //         bottomLeft: Radius.circular(30),
+          //         bottomRight: Radius.circular(30),
+          //       ),
+          //     ),
+          //   ),
+          // ),
+
           SafeArea(
             bottom: false,
             child: CustomScrollView(
               physics: const BouncingScrollPhysics(),
               slivers: [
+                AdvancedHeader(scale: MediaQuery.of(context).size.width / 375),
                 // 1. Header
-                 SliverPadding(
-                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-                  sliver: SliverToBoxAdapter(child: CustomHeader()),
-                ),
+                // SliverPadding(
+                //   padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                //   sliver: SliverToBoxAdapter(child: CustomHeader()),
+                // ),
 
-                // 2. Banner
-                const SliverPadding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  sliver: SliverToBoxAdapter(child: PromoSlider(scale: 1.02)),
-                ),
+                // // 2. Banner
+                // const SliverPadding(
+                //   padding: EdgeInsets.symmetric(horizontal: 1, vertical: 10),
+                //   sliver: SliverToBoxAdapter(child: PromoSlider(scale: 1.02)),
+                // ),
 
                 // 3. Search Bar & Filter
                 const SliverPadding(
@@ -43,7 +71,10 @@ class HomeScreen extends StatelessWidget {
                 ),
 
                 // 4. Categories (Mixed Layout: Text Pill vs Icon Circle)
-                const SliverToBoxAdapter(child: CategorySelector()),
+              SliverPadding  (
+                
+                padding: const EdgeInsets.symmetric( vertical: 5),
+                sliver: const SliverToBoxAdapter(child: CategorySelector())),
 
                 // 5. Section Title
                 const SliverPadding(
@@ -73,9 +104,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
-
 
 class TestHeader extends StatelessWidget {
   const TestHeader({super.key});
@@ -156,25 +184,24 @@ class TestHeader extends StatelessWidget {
   }
 }
 
-  Widget _buildDarkHeaderIcon(IconData icon) {
-    return Container(
-      width: 42,
-      height: 42,
-      decoration: BoxDecoration(
-        color: const Color(0xFF3A3A3A),
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.3),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Icon(icon, size: 20, color: Colors.white),
-    );
-  }
-
+Widget _buildDarkHeaderIcon(IconData icon) {
+  return Container(
+    width: 42,
+    height: 42,
+    decoration: BoxDecoration(
+      color: const Color(0xFF3A3A3A),
+      shape: BoxShape.circle,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.3),
+          blurRadius: 8,
+          offset: const Offset(0, 2),
+        ),
+      ],
+    ),
+    child: Icon(icon, size: 20, color: Colors.white),
+  );
+}
 
 class AdvancedHeader extends StatelessWidget {
   final double scale;
@@ -184,34 +211,27 @@ class AdvancedHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       backgroundColor: Colors.transparent,
-      expandedHeight: 330 * scale,
+      expandedHeight: 100 * scale,
       pinned: false,
       floating: false,
       automaticallyImplyLeading: false,
       flexibleSpace: LayoutBuilder(
         builder: (context, constraints) {
           final percent =
-              (constraints.maxHeight - kToolbarHeight) /
-                  (330 * scale);
+              (constraints.maxHeight - kToolbarHeight) / (330 * scale);
 
           return Stack(
             clipBehavior: Clip.none,
             children: [
-
               /// 🔥 Animated Gradient Background
               AnimatedContainer(
                 duration: const Duration(milliseconds: 500),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: percent > 0.5
-                        ? const [
-                            Color(0xff2B2B2B),
-                            Color(0xff111111),
-                          ]
-                        : const [
-                            Color(0xff1A1A1A),
-                            Color(0xff000000),
-                          ],
+                    colors:
+                        percent > 0.5
+                            ? const [Color(0xff2B2B2B), Color(0xff111111)]
+                            : const [Color(0xff1A1A1A), Color(0xff000000)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -222,17 +242,7 @@ class AdvancedHeader extends StatelessWidget {
                 ),
               ),
 
-              /// 🔥 Blur Effect
-              BackdropFilter(
-                filter: ImageFilter.blur(
-                  sigmaX: 10 * (1 - percent),
-                  sigmaY: 10 * (1 - percent),
-                ),
-                child: Container(
-                  color: Colors.transparent,
-                ),
-              ),
-
+            
               /// 🔥 Header Content
               Positioned(
                 top: 50 * scale,
@@ -243,13 +253,10 @@ class AdvancedHeader extends StatelessWidget {
 
               /// 🔥 Promo Card (يخرج نصفه)
               Positioned(
-                bottom: -40 * scale,
+                bottom: -70 * scale,
                 left: 0,
                 right: 0,
-                child: Opacity(
-                  opacity: percent.clamp(0, 1),
-                  child: PromoSlider(scale: scale),
-                ),
+                child: PromoSlider(scale: scale),
               ),
             ],
           );

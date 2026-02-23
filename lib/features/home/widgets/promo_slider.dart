@@ -9,7 +9,7 @@ class PromoSlider extends StatefulWidget {
 }
 
 class _PromoSliderState extends State<PromoSlider> {
-  final PageController _controller = PageController(viewportFraction: .9);
+  final PageController _controller = PageController(viewportFraction: 0.959);
   int currentIndex = 0;
 
   @override
@@ -21,6 +21,7 @@ class _PromoSliderState extends State<PromoSlider> {
           child: PageView.builder(
             controller: _controller,
             itemCount: 3,
+
             onPageChanged: (index) {
               setState(() => currentIndex = index);
             },
@@ -43,53 +44,82 @@ class _PromoSliderState extends State<PromoSlider> {
                   ],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(16 * widget.scale),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 25 * widget.scale,
+                    vertical: 13 * widget.scale,
+                  ),
                   child: Row(
                     children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Introducing",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 13 * widget.scale,
-                              ),
-                            ),
-                            SizedBox(height: 6 * widget.scale),
-                            Text(
-                              "Top Trending\nHoodies",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18 * widget.scale,
-                              ),
-                            ),
-                            const Spacer(),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 16 * widget.scale,
-                                vertical: 8 * widget.scale,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Text(
-                                "Shop Now",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12 * widget.scale,
-                                ),
-                              ),
-                            ),
-                          ],
+                      Card(
+                        elevation: 0,
+                        margin: EdgeInsets.zero,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                        ),
+                        child: Container(
+                          height: 143 * widget.scale,
+                          width: 140 * widget.scale,
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 245, 246, 247),
+
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                          ),
+                          child: Image.asset(
+                            "assets/images/black_hodie.png",
+                            width: 100 * widget.scale,
+                          ),
                         ),
                       ),
-                      Image.asset(
-                        "assets/images/apparel.jpeg",
-                        width: 90 * widget.scale,
-                      ),
+                      SizedBox(width: 50 * widget.scale),
+
+                      // Column(
+                      //   crossAxisAlignment: CrossAxisAlignment.start,
+                      //   children: [
+                      //     Text(
+                      //       "Introducing",
+                      //       style: TextStyle(
+                      //         color: Colors.grey,
+                      //         fontSize: 13 * widget.scale,
+                      //       ),
+                      //     ),
+                      //     SizedBox(height: 6 * widget.scale),
+                      //     Text(
+                      //       "Top Trending\nHoodies",
+                      //       style: TextStyle(
+                      //         fontWeight: FontWeight.bold,
+                      //         fontSize: 21 * widget.scale,
+                      //       ),
+                      //     ),
+                      //     const Spacer(),
+                      //     Container(
+                      //       padding: EdgeInsets.symmetric(
+                      //         horizontal: 20 * widget.scale,
+                      //         vertical: 12 * widget.scale,
+                      //       ),
+                      //       decoration: BoxDecoration(
+                      //         // gradient
+                      //         gradient: LinearGradient(
+                      //           colors: [
+                      //             Color(0xFF000000), // لون رمادي أغمق
+
+                      //             Color(0xFF606060), // لون رمادي أغمق
+                      //           ],
+                      //           begin: Alignment.bottomCenter,
+                      //           end: Alignment.topCenter,
+                      //         ),
+                      //         borderRadius: BorderRadius.all(Radius.circular(30)),
+                      //       ),
+                      //       child: Text(
+                      //         "Shop Now",
+                      //         style: TextStyle(
+                      //           color: Colors.white,
+                      //           fontWeight: FontWeight.bold,
+                      //           fontSize: 14 * widget.scale,
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
                     ],
                   ),
                 ),
