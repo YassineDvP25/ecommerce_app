@@ -19,7 +19,7 @@ class CustomHeader extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text(
-                  "Billy Hanson",
+                  "Yassine El Anssari",
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 18,

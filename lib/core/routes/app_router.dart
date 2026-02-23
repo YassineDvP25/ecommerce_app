@@ -11,7 +11,7 @@ class AppRouter {
     switch (settings.name) {
     
       case Routes.home:
-        return _buildRoute(const HomeScreen(), settings);
+        return _buildRoute(HomeScreen(), settings);
       default:
         return _buildRoute(
           Scaffold(
