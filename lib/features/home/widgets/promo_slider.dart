@@ -58,7 +58,7 @@ class _PromoSliderState extends State<PromoSlider> {
                         ),
                         child: Container(
                           height: 143 * widget.scale,
-                          width: 140 * widget.scale,
+                          width: 170 * widget.scale,
                           decoration: BoxDecoration(
                             color: Color.fromARGB(255, 245, 246, 247),
 
@@ -70,56 +70,56 @@ class _PromoSliderState extends State<PromoSlider> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 50 * widget.scale),
+                      SizedBox(width: 40 * widget.scale),
 
-                      // Column(
-                      //   crossAxisAlignment: CrossAxisAlignment.start,
-                      //   children: [
-                      //     Text(
-                      //       "Introducing",
-                      //       style: TextStyle(
-                      //         color: Colors.grey,
-                      //         fontSize: 13 * widget.scale,
-                      //       ),
-                      //     ),
-                      //     SizedBox(height: 6 * widget.scale),
-                      //     Text(
-                      //       "Top Trending\nHoodies",
-                      //       style: TextStyle(
-                      //         fontWeight: FontWeight.bold,
-                      //         fontSize: 21 * widget.scale,
-                      //       ),
-                      //     ),
-                      //     const Spacer(),
-                      //     Container(
-                      //       padding: EdgeInsets.symmetric(
-                      //         horizontal: 20 * widget.scale,
-                      //         vertical: 12 * widget.scale,
-                      //       ),
-                      //       decoration: BoxDecoration(
-                      //         // gradient
-                      //         gradient: LinearGradient(
-                      //           colors: [
-                      //             Color(0xFF000000), // لون رمادي أغمق
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Introducing",
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 13 * widget.scale,
+                            ),
+                          ),
+                          SizedBox(height: 6 * widget.scale),
+                          Text(
+                            "Top Trending\nHoodies",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 21 * widget.scale,
+                            ),
+                          ),
+                          const Spacer(),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 20 * widget.scale,
+                              vertical: 12 * widget.scale,
+                            ),
+                            decoration: BoxDecoration(
+                              // gradient
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFF000000), // لون رمادي أغمق
 
-                      //             Color(0xFF606060), // لون رمادي أغمق
-                      //           ],
-                      //           begin: Alignment.bottomCenter,
-                      //           end: Alignment.topCenter,
-                      //         ),
-                      //         borderRadius: BorderRadius.all(Radius.circular(30)),
-                      //       ),
-                      //       child: Text(
-                      //         "Shop Now",
-                      //         style: TextStyle(
-                      //           color: Colors.white,
-                      //           fontWeight: FontWeight.bold,
-                      //           fontSize: 14 * widget.scale,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ],
-                      // ),
+                                  Color(0xFF606060), // لون رمادي أغمق
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                              ),
+                              borderRadius: BorderRadius.all(Radius.circular(30)),
+                            ),
+                            child: Text(
+                              "Shop Now",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14 * widget.scale,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
