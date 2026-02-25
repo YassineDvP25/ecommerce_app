@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:ecommerce/features/home/widgets/bottom_nav_bar.dart';
 import 'package:ecommerce/features/home/widgets/category_list.dart';
 import 'package:ecommerce/features/home/widgets/hero_black_container.dart';
@@ -7,6 +6,7 @@ import 'package:ecommerce/features/home/widgets/product_grid.dart';
 import 'package:ecommerce/features/home/widgets/promo_slider.dart';
 import 'package:ecommerce/features/home/widgets/search_section.dart';
 import 'package:ecommerce/features/home/widgets/section_header.dart';
+import 'package:ecommerce/features/search/views/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -43,6 +43,39 @@ class _HomeScreenState extends State<HomeScreen> {
     headerOpacity.dispose();
     super.dispose();
   }
+  Route _createSearchRoute() {
+  return PageRouteBuilder(
+    transitionDuration: const Duration(milliseconds: 400),
+    reverseTransitionDuration: const Duration(milliseconds: 350),
+    pageBuilder: (context, animation, secondaryAnimation) =>
+        const SearchScreen(),
+    transitionsBuilder:
+        (context, animation, secondaryAnimation, child) {
+
+      final fade = Tween(begin: 0.0, end: 1.0)
+          .animate(CurvedAnimation(
+        parent: animation,
+        curve: Curves.easeInOut,
+      ));
+
+      final slide = Tween(
+        begin: const Offset(0, 0.05),
+        end: Offset.zero,
+      ).animate(CurvedAnimation(
+        parent: animation,
+        curve: Curves.easeOutCubic,
+      ));
+
+      return FadeTransition(
+        opacity: fade,
+        child: SlideTransition(
+          position: slide,
+          child: child,
+        ),
+      );
+    },
+  );
+}
 
   @override
   Widget build(BuildContext context) {
@@ -80,11 +113,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
                 ///  Search Section
-                const SliverPadding(
+                 SliverPadding(
                   padding:
                       EdgeInsets.symmetric(horizontal: 24, vertical: 15),
                   sliver:
-                      SliverToBoxAdapter(child: SearchSection()),
+                      SliverToBoxAdapter(child: Hero(
+                        tag: "searchBar",
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, _createSearchRoute());
+                          },
+                          child: SearchSection(),
+                        ),
+                      )),
                 ),
 
                 ///  Categories
@@ -120,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
             bottom: 1,
             left: 24,
             right: 24,
-            child: CustomBottomNav(),
+            child: CustomBottomNavBar(),
           ),
         ],
       ),
