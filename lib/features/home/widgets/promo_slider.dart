@@ -70,7 +70,7 @@ class _PromoSliderState extends State<PromoSlider> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 40 * widget.scale),
+                      SizedBox(width: 20 * widget.scale),
 
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

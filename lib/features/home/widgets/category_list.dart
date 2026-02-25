@@ -30,69 +30,74 @@ class _CategorySelectorState extends State<CategorySelector> {
         separatorBuilder: (_, __) => const SizedBox(width: 16),
         itemBuilder: (context, index) {
           bool isSelected = selectedIndex == index;
+          final item = categories[index];
           return GestureDetector(
             onTap: () => setState(() => selectedIndex = index),
-            child:
-                isSelected
-                    ? _buildActivePill(categories[index])
-                    : _buildInactiveCircle(categories[index]),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 500),
+              curve: Curves.easeInOut,
+              padding: EdgeInsets.fromLTRB(
+                isSelected ? 6 : 3,
+                isSelected ? 6 : 3,
+                isSelected ? 20 : 3,
+                isSelected ? 6 : 3,
+              ),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: isSelected
+                      ? [
+                          const Color(0xFF000000),
+                          const Color(0xFF606060),
+                        ]
+                      : [
+                          Colors.white,
+                          Colors.white,
+                        ],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                ),
+                borderRadius: BorderRadius.circular(isSelected ? 40 : 26),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: isSelected ? Colors.white : Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      item['icon'],
+                      color: isSelected ? const Color.fromARGB(255, 255, 90, 40) : Colors.black,
+                      size: 22,
+                    ),
+                  ),
+                  AnimatedSize(
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                    child: isSelected
+                        ? Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Text(
+                              item['label'],
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                          )
+                        : const SizedBox.shrink(),
+                  ),
+                ],
+              ),
+            ),
           );
         },
       ),
-    );
-  }
-
-  // الشكل النشط (كبسولة سوداء مع أيقونة برتقالية)
-  Widget _buildActivePill(Map<String, dynamic> item) {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(6, 6, 20, 6),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color(0xFF000000), // لون رمادي أغمق
-
-            Color(0xFF606060), // لون رمادي أغمق
-          ],
-          begin: Alignment.bottomCenter,
-          end: Alignment.topCenter,
-        ),
-        borderRadius: BorderRadius.circular(40),
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-            ),
-            child: Icon(item['icon'], color: Colors.deepOrange, size: 20),
-          ),
-          const SizedBox(width: 10),
-          Text(
-            item['label'],
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  // الشكل غير النشط (دائرة بيضاء فقط)
-  Widget _buildInactiveCircle(Map<String, dynamic> item) {
-    return Container(
-      width: 52,
-      height: 52,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        shape: BoxShape.circle,
-      ),
-      child: Icon(item['icon'], color: Colors.black, size: 24),
     );
   }
 }

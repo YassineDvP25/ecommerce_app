@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomBottomNav extends StatefulWidget {
-  const CustomBottomNav({super.key});
+class CustomBottomNavBar extends StatefulWidget {
+  const CustomBottomNavBar({super.key});
 
   @override
-  State<CustomBottomNav> createState() => _CustomBottomNavState();
+  State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
 }
 
-class _CustomBottomNavState extends State<CustomBottomNav> {
+class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   int selectedIndex = 0;
 
   final icons = const [
@@ -31,21 +31,22 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
       child: Container(
         height: 65 * scale,
         decoration: BoxDecoration(
-  gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF000000), // لون رمادي أغمق
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF000000), // لون رمادي أغمق
 
-                    Color(0xFF606060), // لون رمادي أغمق
-                  ],
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                ),          borderRadius: BorderRadius.circular(40),
+              Color(0xFF606060), // لون رمادي أغمق
+            ],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
+          borderRadius: BorderRadius.circular(40),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(.25),
               blurRadius: 20,
               offset: const Offset(0, 10),
-            )
+            ),
           ],
         ),
         child: Row(
@@ -55,29 +56,45 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
             (index) => GestureDetector(
               onTap: () {
                 setState(() => selectedIndex = index);
+                // 🔥 Handle navigation logic here based on the selected index
+                // Example: Navigate to different screens based on index
+                switch (index) {
+                  case 0:
+                    // Navigate to Home Screen
+                   
+
+                    break;
+                  case 1:
+                
+                    break;
+                  case 2:
+                    // Navigate to Cart Screen
+                    break;
+                  case 3:
+                    // Navigate to Profile Screen
+                    break;
+                }
               },
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 500),
                 padding: EdgeInsets.symmetric(
-                  horizontal: selectedIndex == index
-                      ? 16 * scale
-                      : 0,
-                  vertical: 14 * scale,
+                  horizontal: selectedIndex == index ? 16 * scale : 0,
+                  vertical: 12 * scale,
                 ),
                 decoration: BoxDecoration(
-                  color: selectedIndex == index
-                      ? Colors.white
-                      : Colors.transparent,
+                  color:
+                      selectedIndex == index
+                          ? Colors.white
+                          : Colors.transparent,
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Row(
                   children: [
                     Icon(
                       icons[index],
-                      color: selectedIndex == index
-                          ? Colors.black
-                          : Colors.white,
-                      size: 24 * scale,
+                      color:
+                          selectedIndex == index ? Colors.black : Colors.white,
+                      size:  selectedIndex == index ? 26 * scale : 24 * scale,
                     ),
                     if (selectedIndex == index)
                       Padding(
@@ -90,7 +107,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                             fontSize: 13 * scale,
                           ),
                         ),
-                      )
+                      ),
                   ],
                 ),
               ),
