@@ -2,7 +2,8 @@ import 'package:ecommerce/features/home/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 
 class ProductGridSliver extends StatelessWidget {
-  const ProductGridSliver({super.key});
+  final VoidCallback? onTap;
+  const ProductGridSliver({super.key, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +64,7 @@ class ProductGridSliver extends StatelessWidget {
         ),
         delegate: SliverChildBuilderDelegate((context, index) {
           final p = products[index % products.length];
-          return ProductCard(p);
+          return ProductCard(p,onTap: onTap,);
         }, childCount: products.length),
       ),
     );
