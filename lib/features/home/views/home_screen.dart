@@ -6,6 +6,7 @@ import 'package:ecommerce/features/home/widgets/product_grid.dart';
 import 'package:ecommerce/features/home/widgets/promo_slider.dart';
 import 'package:ecommerce/features/home/widgets/search_section.dart';
 import 'package:ecommerce/features/home/widgets/section_header.dart';
+import 'package:ecommerce/features/product_details/view/products_details_screen.dart';
 import 'package:ecommerce/features/search/views/search_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -43,50 +44,69 @@ class _HomeScreenState extends State<HomeScreen> {
     headerOpacity.dispose();
     super.dispose();
   }
+
   Route _createSearchRoute() {
-  return PageRouteBuilder(
-    transitionDuration: const Duration(milliseconds: 400),
-    reverseTransitionDuration: const Duration(milliseconds: 350),
-    pageBuilder: (context, animation, secondaryAnimation) =>
-        const SearchScreen(),
-    transitionsBuilder:
-        (context, animation, secondaryAnimation, child) {
+    return PageRouteBuilder(
+      transitionDuration: const Duration(milliseconds: 400),
+      reverseTransitionDuration: const Duration(milliseconds: 350),
+      pageBuilder:
+          (context, animation, secondaryAnimation) => const SearchScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final fade = Tween(
+          begin: 0.0,
+          end: 1.0,
+        ).animate(CurvedAnimation(parent: animation, curve: Curves.easeInOut));
 
-      final fade = Tween(begin: 0.0, end: 1.0)
-          .animate(CurvedAnimation(
-        parent: animation,
-        curve: Curves.easeInOut,
-      ));
+        final slide = Tween(
+          begin: const Offset(0, 0.05),
+          end: Offset.zero,
+        ).animate(
+          CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
+        );
 
-      final slide = Tween(
-        begin: const Offset(0, 0.05),
-        end: Offset.zero,
-      ).animate(CurvedAnimation(
-        parent: animation,
-        curve: Curves.easeOutCubic,
-      ));
+        return FadeTransition(
+          opacity: fade,
+          child: SlideTransition(position: slide, child: child),
+        );
+      },
+    );
+  }
 
-      return FadeTransition(
-        opacity: fade,
-        child: SlideTransition(
-          position: slide,
-          child: child,
-        ),
-      );
-    },
-  );
-}
+  Route _createProductRoute() {
+    return PageRouteBuilder(
+      transitionDuration: const Duration(milliseconds: 450),
+      reverseTransitionDuration: const Duration(milliseconds: 350),
+      pageBuilder:
+          (context, animation, secondaryAnimation) =>
+              const ProductDetailsScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final fade = Tween(
+          begin: 0.0,
+          end: 1.0,
+        ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOut));
+
+        final slide = Tween(
+          begin: const Offset(0, 0.08),
+          end: Offset.zero,
+        ).animate(
+          CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
+        );
+
+        return FadeTransition(
+          opacity: fade,
+          child: SlideTransition(position: slide, child: child),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-
           /// 🔥 Black Header (Fade + Slide)
-          HeroBlackContainer(
-            opacityNotifier: headerOpacity,
-          ),
+          HeroBlackContainer(opacityNotifier: headerOpacity),
 
           /// 🔥 Main Scroll Content
           SafeArea(
@@ -95,63 +115,59 @@ class _HomeScreenState extends State<HomeScreen> {
               controller: _scrollController,
               physics: const BouncingScrollPhysics(),
               slivers: [
-
                 ///  Header
                 SliverPadding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 24, vertical: 10),
-                  sliver:
-                      const SliverToBoxAdapter(child: CustomHeader()),
+                    horizontal: 24,
+                    vertical: 10,
+                  ),
+                  sliver: const SliverToBoxAdapter(child: CustomHeader()),
                 ),
 
                 /// 2 Promo Slider
                 const SliverPadding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 1, vertical: 10),
-                  sliver:
-                      SliverToBoxAdapter(child: PromoSlider(scale: 1.02)),
+                  padding: EdgeInsets.symmetric(horizontal: 1, vertical: 10),
+                  sliver: SliverToBoxAdapter(child: PromoSlider(scale: 1.02)),
                 ),
 
                 ///  Search Section
-                 SliverPadding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 24, vertical: 15),
-                  sliver:
-                      SliverToBoxAdapter(child: Hero(
-                        tag: "searchBar",
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(context, _createSearchRoute());
-                          },
-                          child: SearchSection(),
-                        ),
-                      )),
+                SliverPadding(
+                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                  sliver: SliverToBoxAdapter(
+                    child: Hero(
+                      tag: "searchBar",
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, _createSearchRoute());
+                        },
+                        child: SearchSection(),
+                      ),
+                    ),
+                  ),
                 ),
 
                 ///  Categories
                 const SliverPadding(
                   padding: EdgeInsets.symmetric(vertical: 5),
-                  sliver:
-                      SliverToBoxAdapter(child: CategorySelector()),
+                  sliver: SliverToBoxAdapter(child: CategorySelector()),
                 ),
 
                 ///  Section Header
                 const SliverPadding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 10),
                   sliver: SliverToBoxAdapter(
-                    child: SectionHeader(
-                      title: "Top Picks Nearby",
-                    ),
+                    child: SectionHeader(title: "Top Picks Nearby"),
                   ),
                 ),
 
                 ///  Products Grid
-                const ProductGridSliver(),
-
-                const SliverToBoxAdapter(
-                  child: SizedBox(height: 100),
+                ProductGridSliver(
+                  onTap: () {
+                    Navigator.push(context, _createProductRoute());
+                  },
                 ),
+
+                const SliverToBoxAdapter(child: SizedBox(height: 100)),
               ],
             ),
           ),
@@ -168,4 +184,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
