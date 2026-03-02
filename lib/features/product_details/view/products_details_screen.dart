@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:vector_math/vector_math_64.dart' as v;
 
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key});
@@ -32,12 +31,21 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
 
   final List<String> sizes = ["S", "M", "L", "XL", "XXL"];
   final List<Color> colors = [
-    const Color(0xFF1C2238),
     Colors.black,
-    Colors.blue,
-    Colors.deepPurple,
-  ];
+    Colors.white,
 
+    Colors.blue,
+    // Colors.deepPurple,
+    Colors.yellow,
+  ];
+  final List<String> imagePaths = [
+    'assets/images/ChatGPT Image Mar 2, 2026, 11_54_22 AM.png',
+    'assets/images/ChatGPT Image Mar 2, 2026, 12_21_43 PM.png',
+
+
+    'assets/images/ChatGPT Image Mar 2, 2026, 12_18_03 PM.png',
+    'assets/images/ChatGPT Image Mar 2, 2026, 12_28_33 PM.png',
+  ];
   @override
   void initState() {
     super.initState();
@@ -69,6 +77,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
   Widget build(BuildContext context) {
     final themeColor = colors[selectedColorIndex];
 
+    // determine if product colour is light so we can choose contrasting text
+    final bool lightProduct =
+        themeColor == Colors.white || themeColor == Colors.yellow;
+
     return Scaffold(
       backgroundColor: themeColor.withOpacity(0.15),
 
@@ -93,8 +105,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
           CustomScrollView(
             physics: const BouncingScrollPhysics(),
             slivers: [
+              // sliver app bar with 3D product image and parallax effect
               SliverAppBar(
-                expandedHeight: 420,
+                expandedHeight: 380,
                 pinned: true,
                 backgroundColor: Colors.transparent,
                 elevation: 0,
@@ -134,8 +147,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                             key: ValueKey(selectedColorIndex),
                             tag: "product",
                             child: Image.asset(
-                              "assets/images/black_hodie.png",
-                              height: 300,
+                              imagePaths[selectedColorIndex],
+                              height: 390,
                             ),
                           ),
                         ),
@@ -160,7 +173,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                 
+
                             children: [
                               const Text(
                                 "Cotton Sweater",
@@ -170,7 +183,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                 ),
                               ),
 
-                          _quantity(),
+                              _quantity(),
                             ],
                           ),
 
@@ -193,6 +206,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                   decoration: BoxDecoration(
                                     color: colors[i],
                                     shape: BoxShape.circle,
+                                    // add a faint border so white option is visible on white
+                                    border:
+                                        colors[i] == Colors.white
+                                            ? Border.all(
+                                              color: Colors.grey.shade400,
+                                            )
+                                            : null,
                                     boxShadow:
                                         selected
                                             ? [
@@ -211,7 +231,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                           ),
 
                           const SizedBox(height: 30),
-// SIZES LIST
+                          // SIZES LIST
                           Wrap(
                             spacing: 12,
                             children: List.generate(
@@ -239,7 +259,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                             ),
                           ),
 
-                          const SizedBox(height: 60),
+                          const SizedBox(height: 90),
                           Center(
                             child: Container(
                               width: 400,
@@ -319,20 +339,26 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                                 ),
                                               ],
                                             ),
-                                            child: const Row(
+                                            child: Row(
                                               children: [
                                                 Icon(
                                                   Icons.shopping_bag_outlined,
-                                                  color: Colors.white,
+                                                  color:
+                                                      lightProduct
+                                                          ? Colors.black
+                                                          : Colors.white,
                                                   size: 20,
                                                 ),
-                                                SizedBox(width: 8),
+                                                const SizedBox(width: 8),
                                                 Text(
                                                   "Buy Now",
                                                   style: TextStyle(
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.bold,
-                                                    color: Colors.white,
+                                                    color:
+                                                        lightProduct
+                                                            ? Colors.black
+                                                            : Colors.white,
                                                   ),
                                                 ),
                                               ],
@@ -364,6 +390,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
   Widget _size(int i) {
     final selected = selectedSizeIndex == i;
 
+    // determine if the current product colour is light (white/yellow)
+    final bool lightProduct =
+        colors[selectedColorIndex] == Colors.white ||
+        colors[selectedColorIndex] == Colors.yellow;
+
     return GestureDetector(
       onTap: () {
         setState(() => selectedSizeIndex = i);
@@ -381,7 +412,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
           ),
           child: Text(
             sizes[i],
-            style: TextStyle(color: selected ? Colors.white : Colors.black),
+            style: TextStyle(
+              color:
+                  selected
+                      ? (lightProduct ? Colors.black : Colors.white)
+                      : Colors.black87,
+            ),
           ),
         ),
       ),
