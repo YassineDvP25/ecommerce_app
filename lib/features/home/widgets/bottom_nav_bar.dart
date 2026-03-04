@@ -1,3 +1,4 @@
+import 'package:ecommerce/features/cart/views/cart_screen.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
@@ -61,13 +62,16 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                 switch (index) {
                   case 0:
                     // Navigate to Home Screen
-                   
 
                     break;
                   case 1:
-                
                     break;
                   case 2:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => CartScreen()),
+                    );
+
                     // Navigate to Cart Screen
                     break;
                   case 3:
@@ -94,7 +98,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                       icons[index],
                       color:
                           selectedIndex == index ? Colors.black : Colors.white,
-                      size:  selectedIndex == index ? 26 * scale : 24 * scale,
+                      size: selectedIndex == index ? 26 * scale : 24 * scale,
                     ),
                     if (selectedIndex == index)
                       Padding(
