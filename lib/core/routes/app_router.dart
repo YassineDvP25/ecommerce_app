@@ -1,3 +1,4 @@
+import 'package:ecommerce/features/cart/views/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'routes.dart';
 
@@ -12,6 +13,8 @@ class AppRouter {
     
       case Routes.home:
         return _buildRoute(HomeScreen(), settings);
+      case Routes.cart:
+        return _buildRoute(CartScreen(), settings);
       default:
         return _buildRoute(
           Scaffold(
