@@ -75,14 +75,12 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [ Color(0xFF606060),Color(0xFF000000),],
+              colors: [Color(0xFF606060), Color(0xFF000000)],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
             ),
           ),
         ),
-      
-        
       ),
       body: SafeArea(
         child: Center(
@@ -139,5 +137,3 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
     );
   }
 }
-
-

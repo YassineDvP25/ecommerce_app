@@ -48,19 +48,19 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      
+
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-        title: 'EcoHome UI',
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(
-          0xFFF2F2F2,
-        ), // لون خلفية رمادي فاتح جداً مطابق للصورة
-        fontFamily:
-            'SofiaSans', // تأكد من إضافة الخط في pubspec.yaml للحصول على التطابق 100%
-        useMaterial3: true,
-      ),
+          title: 'EcoHome UI',
+          theme: ThemeData(
+            scaffoldBackgroundColor: const Color(
+              0xFFF2F2F2,
+            ), // لون خلفية رمادي فاتح جداً مطابق للصورة
+            fontFamily:
+                'SofiaSans', // تأكد من إضافة الخط في pubspec.yaml للحصول على التطابق 100%
+            useMaterial3: true,
+          ),
           themeMode: ThemeMode.system,
           initialRoute: Routes.home,
           onGenerateRoute: AppRouter.generateRoute,

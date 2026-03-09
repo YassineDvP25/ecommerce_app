@@ -1,4 +1,4 @@
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel product;
@@ -41,7 +41,6 @@ class ProductCard extends StatelessWidget {
                       top: Radius.circular(16),
                     ),
                     child: Image.asset(
-                      
                       "assets/images/black_hodie.png",
                       fit: BoxFit.fill,
                     ),
@@ -64,7 +63,9 @@ class ProductCard extends StatelessWidget {
                       ],
                     ),
                     child: Icon(
-                      product.isFavorite ? Icons.favorite : Icons.favorite_border,
+                      product.isFavorite
+                          ? Icons.favorite
+                          : Icons.favorite_border,
                       size: 18,
                       color: product.isFavorite ? Colors.red : Colors.grey[600],
                     ),
@@ -94,7 +95,10 @@ class ProductCard extends StatelessWidget {
                       return Icon(
                         Icons.star,
                         size: 14,
-                        color: index < product.rating ? Colors.orange : Colors.grey[300],
+                        color:
+                            index < product.rating
+                                ? Colors.orange
+                                : Colors.grey[300],
                       );
                     }),
                   ),
@@ -134,7 +138,8 @@ class ProductCard extends StatelessWidget {
     );
   }
 }
-    class ProductModel {
+
+class ProductModel {
   final String name;
   final int price;
   final double rating;
@@ -149,4 +154,3 @@ class ProductCard extends StatelessWidget {
     required this.isFavorite,
   });
 }
-

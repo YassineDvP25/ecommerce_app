@@ -44,15 +44,10 @@ class _CategorySelectorState extends State<CategorySelector> {
               ),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: isSelected
-                      ? [
-                          const Color(0xFF000000),
-                          const Color(0xFF606060),
-                        ]
-                      : [
-                          Colors.white,
-                          Colors.white,
-                        ],
+                  colors:
+                      isSelected
+                          ? [const Color(0xFF000000), const Color(0xFF606060)]
+                          : [Colors.white, Colors.white],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                 ),
@@ -71,26 +66,30 @@ class _CategorySelectorState extends State<CategorySelector> {
                     ),
                     child: Icon(
                       item['icon'],
-                      color: isSelected ? const Color.fromARGB(255, 255, 90, 40) : Colors.black,
+                      color:
+                          isSelected
+                              ? const Color.fromARGB(255, 255, 90, 40)
+                              : Colors.black,
                       size: 22,
                     ),
                   ),
                   AnimatedSize(
                     duration: const Duration(milliseconds: 500),
                     curve: Curves.easeInOut,
-                    child: isSelected
-                        ? Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Text(
-                              item['label'],
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15,
+                    child:
+                        isSelected
+                            ? Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: Text(
+                                item['label'],
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
-                          )
-                        : const SizedBox.shrink(),
+                            )
+                            : const SizedBox.shrink(),
                   ),
                 ],
               ),

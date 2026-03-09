@@ -7,47 +7,53 @@ class ProductGridSliver extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     final products = [
+    final products = [
       ProductModel(
         name: 'Nike Kobe 5 Pro...',
         price: 120,
         rating: 5.0,
-        imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400',
+        imageUrl:
+            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400',
         isFavorite: false,
       ),
       ProductModel(
         name: 'Nick Hoops Elite',
         price: 40,
         rating: 5.0,
-        imageUrl: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400',
+        imageUrl:
+            'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400',
         isFavorite: false,
       ),
       ProductModel(
         name: 'Nike Kobe 5 Pro...',
         price: 120,
         rating: 5.0,
-        imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400',
+        imageUrl:
+            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400',
         isFavorite: false,
       ),
       ProductModel(
         name: 'Nick Hoops Elite',
         price: 40,
         rating: 5.0,
-        imageUrl: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400',
+        imageUrl:
+            'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400',
         isFavorite: false,
       ),
       ProductModel(
         name: 'Nike Kobe 5 Pro...',
         price: 120,
         rating: 5.0,
-        imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400',
+        imageUrl:
+            'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400',
         isFavorite: false,
       ),
       ProductModel(
         name: 'Nick Hoops Elite',
         price: 40,
         rating: 5.0,
-        imageUrl: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400',
+        imageUrl:
+            'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400',
         isFavorite: false,
       ),
     ];
@@ -64,7 +70,7 @@ class ProductGridSliver extends StatelessWidget {
         ),
         delegate: SliverChildBuilderDelegate((context, index) {
           final p = products[index % products.length];
-          return ProductCard(p,onTap: onTap,);
+          return ProductCard(p, onTap: onTap);
         }, childCount: products.length),
       ),
     );

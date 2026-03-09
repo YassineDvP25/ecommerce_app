@@ -1,3 +1,5 @@
+import 'package:ecommerce/core/routes/routes.dart';
+import 'package:ecommerce/features/checkout/views/checkout_screen.dart';
 import 'package:flutter/material.dart';
 
 class SummarySection extends StatefulWidget {
@@ -47,7 +49,10 @@ class _SummarySectionState extends State<SummarySection> {
                   controller: _promoController,
                   decoration: InputDecoration(
                     hintText: 'Promo Code',
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 0),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 0,
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -58,13 +63,14 @@ class _SummarySectionState extends State<SummarySection> {
               SizedBox(
                 height: 40,
                 child: ElevatedButton(
-                  onPressed: _applied
-                      ? null
-                      : () {
-                          setState(() {
-                            _applied = true;
-                          });
-                        },
+                  onPressed:
+                      _applied
+                          ? null
+                          : () {
+                            setState(() {
+                              _applied = true;
+                            });
+                          },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
                     shape: RoundedRectangleBorder(
@@ -72,7 +78,12 @@ class _SummarySectionState extends State<SummarySection> {
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                   ),
-                  child: Text(_applied ? 'Applied' : 'Apply' , style:  TextStyle(color: _applied ? Colors.grey : Colors.white),),
+                  child: Text(
+                    _applied ? 'Applied' : 'Apply',
+                    style: TextStyle(
+                      color: _applied ? Colors.grey : Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -105,7 +116,12 @@ class _SummarySectionState extends State<SummarySection> {
                 borderRadius: BorderRadius.circular(25),
               ),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    Routes.checkout,
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
                   shadowColor: Colors.transparent,
@@ -115,7 +131,11 @@ class _SummarySectionState extends State<SummarySection> {
                 ),
                 child: const Text(
                   'Proceed To Checkout',
-                  style: TextStyle(color: Colors.white , fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

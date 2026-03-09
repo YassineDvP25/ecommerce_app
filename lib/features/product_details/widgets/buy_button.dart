@@ -60,10 +60,15 @@ class BuyButton extends StatelessWidget {
                     },
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 200),
-                      padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 14),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 28,
+                        vertical: 14,
+                      ),
                       decoration: BoxDecoration(
                         color: themeColor,
-                        borderRadius: BorderRadius.circular(40 - (buttonController.value * 10)),
+                        borderRadius: BorderRadius.circular(
+                          40 - (buttonController.value * 10),
+                        ),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withOpacity(0.2),

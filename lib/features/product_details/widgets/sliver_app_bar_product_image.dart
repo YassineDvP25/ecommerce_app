@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 class SliverAppBarProduct extends StatefulWidget {
   final int selectedColorIndex;
 
-  const SliverAppBarProduct({
-    super.key,
-    this.selectedColorIndex = 0,
-  });
+  const SliverAppBarProduct({super.key, this.selectedColorIndex = 0});
 
   @override
   State<SliverAppBarProduct> createState() => _SliverAppBarProductState();
