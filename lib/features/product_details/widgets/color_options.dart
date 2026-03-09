@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorOptions extends StatefulWidget {
   final List<Color> colors;
-  final int selectedColorIndex ;
+  final int selectedColorIndex;
   final ValueChanged<int>? onColorSelected;
 
   const ColorOptions({

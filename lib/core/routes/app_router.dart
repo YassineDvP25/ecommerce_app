@@ -1,5 +1,8 @@
 import 'package:ecommerce/features/cart/views/cart_screen.dart';
+import 'package:ecommerce/features/checkout/cubit/checkout_cubit.dart';
+import 'package:ecommerce/features/checkout/views/checkout_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes.dart';
 
 import '../../features/home/views/home_screen.dart';
@@ -10,11 +13,32 @@ class AppRouter {
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-    
       case Routes.home:
         return _buildRoute(HomeScreen(), settings);
       case Routes.cart:
         return _buildRoute(CartScreen(), settings);
+      case Routes.checkout:
+        return PageRouteBuilder(
+          settings: settings,
+          transitionDuration: const Duration(milliseconds: 600),
+          pageBuilder:
+              (_, animation, __) => BlocProvider(
+                create: (context) => CheckoutCubit(),
+                child: const PaymentScreen(),
+              ),
+          transitionsBuilder: (_, animation, __, child) {
+            final slide = Tween(
+              begin: const Offset(0, 0.15),
+              end: Offset.zero,
+            ).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
+            );
+            return FadeTransition(
+              opacity: animation,
+              child: SlideTransition(position: slide, child: child),
+            );
+          },
+        );
       default:
         return _buildRoute(
           Scaffold(

@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 
 class HeroBlackContainer extends StatelessWidget {
   final ValueNotifier<double> opacityNotifier;
-  const HeroBlackContainer({
-    super.key,
-    required this.opacityNotifier,
-  });
-
+  const HeroBlackContainer({super.key, required this.opacityNotifier});
 
   @override
   Widget build(BuildContext context) {

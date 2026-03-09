@@ -107,7 +107,9 @@ class _PromoSliderState extends State<PromoSlider> {
                                 begin: Alignment.bottomCenter,
                                 end: Alignment.topCenter,
                               ),
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(30),
+                              ),
                             ),
                             child: Text(
                               "Shop Now",
