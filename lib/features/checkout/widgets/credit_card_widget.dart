@@ -13,7 +13,6 @@ class CreditCardeWidget extends StatelessWidget {
       builder: (context, state) {
         return CreditCardWidget(
           
-          // borderRadius: 20,
           padding:  6,
           height: 210,
           width: 410,

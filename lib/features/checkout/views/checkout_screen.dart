@@ -78,8 +78,22 @@ class _PaymentScreenState extends State<PaymentScreen>
 
                           /// Credit Card Form
                           CreditCardeForm(formKey: formKey),
-                                                    const SizedBox(height: 100),
+                          const SizedBox(height: 10),
 
+                          Row(
+                            children: [
+                              SizedBox(width: 15,),
+                              Switch(
+                                value: true,
+                                onChanged: (v) {},
+                                activeColor: Colors.green,
+                              ),
+                              const Text(
+                                "Save card details for future payment",
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 90),
 
                           /// Pay Button
                           _buildPayButton(),
@@ -121,7 +135,7 @@ class _PaymentScreenState extends State<PaymentScreen>
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Icon(Icons.arrow_back_ios),
+        const Icon(Icons.arrow_back , size: 28,),
         const Text(
           "Payment method",
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),

@@ -1,15 +1,14 @@
-import 'package:ecommerce/features/cart/views/cart_screen.dart';
 import 'package:flutter/material.dart';
 
-class CustomBottomNavBar extends StatefulWidget {
-  const CustomBottomNavBar({super.key});
+class CustomBottomNavBar extends StatelessWidget {
+  const CustomBottomNavBar({
+    super.key,
+    required this.currentIndex,
+    required this.onTap,
+  });
 
-  @override
-  State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
-}
-
-class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
-  int selectedIndex = 0;
+  final int currentIndex;
+  final ValueChanged<int> onTap;
 
   final icons = const [
     Icons.home_outlined,
@@ -56,38 +55,17 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             icons.length,
             (index) => GestureDetector(
               onTap: () {
-                setState(() => selectedIndex = index);
-                // 🔥 Handle navigation logic here based on the selected index
-                // Example: Navigate to different screens based on index
-                switch (index) {
-                  case 0:
-                    // Navigate to Home Screen
-
-                    break;
-                  case 1:
-                    break;
-                  case 2:
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => CartScreen()),
-                    );
-
-                    // Navigate to Cart Screen
-                    break;
-                  case 3:
-                    // Navigate to Profile Screen
-                    break;
-                }
+                onTap(index);
               },
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 500),
                 padding: EdgeInsets.symmetric(
-                  horizontal: selectedIndex == index ? 16 * scale : 0,
+                  horizontal: currentIndex == index ? 16 * scale : 0,
                   vertical: 12 * scale,
                 ),
                 decoration: BoxDecoration(
                   color:
-                      selectedIndex == index
+                      currentIndex == index
                           ? Colors.white
                           : Colors.transparent,
                   borderRadius: BorderRadius.circular(30),
@@ -97,10 +75,10 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                     Icon(
                       icons[index],
                       color:
-                          selectedIndex == index ? Colors.black : Colors.white,
-                      size: selectedIndex == index ? 26 * scale : 24 * scale,
+                          currentIndex == index ? Colors.black : Colors.white,
+                      size: currentIndex == index ? 26 * scale : 24 * scale,
                     ),
-                    if (selectedIndex == index)
+                    if (currentIndex == index)
                       Padding(
                         padding: EdgeInsets.only(left: 4 * scale),
                         child: Text(

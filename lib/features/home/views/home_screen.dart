@@ -11,7 +11,9 @@ import 'package:ecommerce/features/search/views/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, this.onSearchTap});
+
+  final VoidCallback? onSearchTap;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -138,7 +140,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       tag: "searchBar",
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(context, _createSearchRoute());
+                          if (widget.onSearchTap != null) {
+                            widget.onSearchTap!();
+                          } else {
+                            Navigator.push(context, _createSearchRoute());
+                          }
                         },
                         child: SearchSection(),
                       ),
@@ -167,17 +173,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
 
-                const SliverToBoxAdapter(child: SizedBox(height: 100)),
+                const SliverToBoxAdapter(child: SizedBox(height: 120)),
               ],
             ),
-          ),
-
-          /// 🔥 Floating Bottom Nav
-          const Positioned(
-            bottom: 1,
-            left: 24,
-            right: 24,
-            child: CustomBottomNavBar(),
           ),
         ],
       ),

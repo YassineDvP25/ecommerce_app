@@ -1,11 +1,12 @@
 import 'package:ecommerce/features/cart/views/cart_screen.dart';
 import 'package:ecommerce/features/checkout/cubit/checkout_cubit.dart';
 import 'package:ecommerce/features/checkout/views/checkout_screen.dart';
+import 'package:ecommerce/features/profile/views/profile_screen.dart';
+import 'package:ecommerce/features/home/views/root_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes.dart';
 
-import '../../features/home/views/home_screen.dart';
 
 /// Application Router
 class AppRouter {
@@ -14,9 +15,31 @@ class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.home:
-        return _buildRoute(HomeScreen(), settings);
+        return _buildRoute(const RootShell(), settings);
       case Routes.cart:
         return _buildRoute(CartScreen(), settings);
+      case Routes.profile:
+        return PageRouteBuilder(
+          settings: settings,
+          transitionDuration: const Duration(milliseconds: 550),
+          pageBuilder: (_, animation, __) => const ProfileScreen(),
+          transitionsBuilder: (_, animation, __, child) {
+            final fade = CurvedAnimation(
+              parent: animation,
+              curve: Curves.easeOut,
+            );
+            final slide = Tween(
+              begin: const Offset(0, 0.08),
+              end: Offset.zero,
+            ).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
+            );
+            return FadeTransition(
+              opacity: fade,
+              child: SlideTransition(position: slide, child: child),
+            );
+          },
+        );
       case Routes.checkout:
         return PageRouteBuilder(
           settings: settings,
