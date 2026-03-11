@@ -5,7 +5,9 @@ import 'package:ecommerce/features/search/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
+  const SearchScreen({super.key, this.onClose});
+
+  final VoidCallback? onClose;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,13 @@ class SearchScreen extends StatelessWidget {
 
                     /// 🔥 Close Button
                     GestureDetector(
-                      onTap: () => Navigator.pop(context),
+                      onTap: () {
+                        if (onClose != null) {
+                          onClose!();
+                        } else {
+                          Navigator.pop(context);
+                        }
+                      },
                       child: const Icon(Icons.close),
                     ),
                   ],
