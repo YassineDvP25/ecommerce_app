@@ -78,26 +78,15 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
         title: const Text(
           'Cart',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFF606060), Color(0xFF000000)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-        ),
+      
+      
       ),
       body: SafeArea(
         child: AnimatedBuilder(
@@ -193,3 +182,4 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
     );
   }
 }
+

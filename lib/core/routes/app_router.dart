@@ -47,7 +47,7 @@ class AppRouter {
           pageBuilder:
               (_, animation, __) => BlocProvider(
                 create: (context) => CheckoutCubit(),
-                child: const PaymentScreen(),
+                child: const CheckoutScreen(),
               ),
           transitionsBuilder: (_, animation, __, child) {
             final slide = Tween(

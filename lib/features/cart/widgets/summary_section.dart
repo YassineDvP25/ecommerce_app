@@ -1,5 +1,4 @@
 import 'package:ecommerce/core/routes/routes.dart';
-import 'package:ecommerce/features/checkout/views/checkout_screen.dart';
 import 'package:flutter/material.dart';
 
 class SummarySection extends StatefulWidget {
@@ -123,16 +122,19 @@ class _SummarySectionState extends State<SummarySection> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
+                  elevation: 5,
+                  
+                  backgroundColor: Colors.white,
+                  shadowColor: Colors.white,
                   shape: RoundedRectangleBorder(
+                    side: const BorderSide(color: Colors.black, width: 0.9),
                     borderRadius: BorderRadius.circular(25),
                   ),
                 ),
                 child: const Text(
                   'Proceed To Checkout',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),

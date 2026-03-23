@@ -10,6 +10,20 @@ class PromoSlider extends StatefulWidget {
 
 class _PromoSliderState extends State<PromoSlider>
     with SingleTickerProviderStateMixin {
+  final List<Map<String, String>> promoItems = [
+    {
+      'image': 'assets/images/products/ChatGPT Image Mar 16, 2026, 10_44_49 AM.png',
+      'title': 'Top Trending\nShoes',
+    },
+    {
+      'image': 'assets/images/products/ChatGPT Image Mar 14, 2026, 10_55_05 AM.png',
+      'title': 'New Winter\nHoodies',
+    },
+    {
+      'image': 'assets/images/products/ChatGPT Image Mar 11, 2026, 12_44_47 PM.png',
+      'title': 'Top Trending\nJackets',
+    },
+  ];
   late final PageController _controller;
   late final AnimationController _enterController;
   int currentIndex = 0;
@@ -120,6 +134,7 @@ class _PromoSliderState extends State<PromoSlider>
                                 ),
                               ),
                               child: Image.asset(
+                                promoItems[index]['image']!,
                                 "assets/images/black_hodie.png",
                                 width: 100 * widget.scale,
                               ),
@@ -138,6 +153,7 @@ class _PromoSliderState extends State<PromoSlider>
                               ),
                               SizedBox(height: 6 * widget.scale),
                               Text(
+                                promoItems[index]['title']!,
                                 "Top Trending\nHoodies",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
