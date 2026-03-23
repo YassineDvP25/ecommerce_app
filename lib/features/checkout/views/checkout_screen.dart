@@ -6,14 +6,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 
 /// Payment method selection and credit card input screen
-class PaymentScreen extends StatefulWidget {
-  const PaymentScreen({super.key});
+class CheckoutScreen extends StatefulWidget {
+  const CheckoutScreen({super.key});
 
   @override
-  State<PaymentScreen> createState() => _PaymentScreenState();
+  State<CheckoutScreen> createState() => _CheckoutScreenState();
 }
 
-class _PaymentScreenState extends State<PaymentScreen>
+class _CheckoutScreenState extends State<CheckoutScreen>
     with SingleTickerProviderStateMixin {
   // ==================== Properties ====================
   late AnimationController controller;
@@ -74,15 +74,18 @@ class _PaymentScreenState extends State<PaymentScreen>
                             },
                           ),
 
+
                           const SizedBox(height: 50),
 
                           /// Credit Card Form
                           CreditCardeForm(formKey: formKey),
+
+
                           const SizedBox(height: 10),
 
                           Row(
                             children: [
-                              SizedBox(width: 15,),
+                              const SizedBox(width: 15),
                               Switch(
                                 value: true,
                                 onChanged: (v) {},
@@ -167,8 +170,7 @@ class _PaymentScreenState extends State<PaymentScreen>
         color: active ? Colors.green : Colors.grey[300],
         shape: BoxShape.circle,
       ),
-      child:
-          active
+      child: active
               ? const Icon(Icons.check, size: 14, color: Colors.white)
               : null,
     );
@@ -202,3 +204,4 @@ class _PaymentScreenState extends State<PaymentScreen>
     );
   }
 }
+

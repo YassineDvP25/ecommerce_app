@@ -10,9 +10,9 @@ class CustomHeader extends StatelessWidget {
       children: [
         Row(
           children: [
-            const CircleAvatar(
+             CircleAvatar(
               radius: 26,
-              backgroundImage: NetworkImage('https://i.pravatar.cc/300?img=11'),
+              backgroundImage: Image.asset('assets/images/تنزيل (14).jpeg').image,
             ),
             const SizedBox(width: 14),
             Column(

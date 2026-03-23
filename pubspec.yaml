@@ -78,8 +78,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/app_logo.png
-    - assets/images/
+    - assets/images/products/
     - assets/lang/
     - assets/fonts/
     - assets/icons/

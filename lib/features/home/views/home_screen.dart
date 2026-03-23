@@ -1,4 +1,3 @@
-import 'package:ecommerce/features/home/widgets/bottom_nav_bar.dart';
 import 'package:ecommerce/features/home/widgets/category_list.dart';
 import 'package:ecommerce/features/home/widgets/hero_black_container.dart';
 import 'package:ecommerce/features/home/widgets/home_header.dart';

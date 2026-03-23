@@ -32,9 +32,9 @@ class CartItemCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             child: Image.asset(
               item.imageUrl,
-              width: 60,
-              height: 60,
-              fit: BoxFit.cover,
+              width: 90,
+              height: 90,
+              fit: BoxFit.fitHeight,
             ),
           ),
 

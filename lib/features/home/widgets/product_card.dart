@@ -28,7 +28,7 @@ class ProductCard extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  height: 170,
+                  height: 180,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.grey[100],
@@ -41,8 +41,9 @@ class ProductCard extends StatelessWidget {
                       top: Radius.circular(16),
                     ),
                     child: Image.asset(
-                      "assets/images/black_hodie.png",
-                      fit: BoxFit.fill,
+                      
+                    product.imageUrl,
+                      fit: BoxFit.fitHeight,
                     ),
                   ),
                 ),
