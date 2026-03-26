@@ -192,7 +192,6 @@ If you like this project, give it a ⭐ on GitHub!
 
 ## 👨‍💻 Author
 
-**Your Name**
 
 * LinkedIn: https://www.linkedin.com/in/yassine-el-anssari-499b3a277/
 * GitHub: https://github.com/YassineDvP25
