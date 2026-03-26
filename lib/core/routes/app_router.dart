@@ -6,6 +6,8 @@ import 'package:ecommerce/features/home/views/root_shell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes.dart';
+import 'package:ecommerce/features/auth/login/view/login_screen.dart';
+
 
 
 /// Application Router
@@ -62,6 +64,26 @@ class AppRouter {
             );
           },
         );
+      case Routes.login:
+        return PageRouteBuilder(
+          settings: settings,
+          transitionDuration: const Duration(milliseconds: 500),
+          pageBuilder: (_, __, ___) => const LoginScreen(),
+          transitionsBuilder: (_, animation, __, child) {
+            final fade = CurvedAnimation(
+              parent: animation,
+              curve: Curves.easeOut,
+            );
+            final slide = Tween(
+              begin: const Offset(0.0, 0.3),
+              end: Offset.zero,
+            ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic));
+            return FadeTransition(
+              opacity: fade,
+              child: SlideTransition(position: slide, child: child),
+            );
+          },
+        );
       default:
         return _buildRoute(
           Scaffold(
@@ -69,6 +91,7 @@ class AppRouter {
           ),
           settings,
         );
+
     }
   }
 

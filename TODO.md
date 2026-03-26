@@ -1,1 +1,27 @@
-# Promo Slider Update - 3 Distinct Products&#10;&#10;## Plan Steps:&#10;1. [x] Create TODO.md with steps&#10;2. [ ] Define promo items list in promo_slider.dart&#10;3. [ ] Update itemBuilder to use index-based data (images/names)&#10;4. [ ] Test slider displays 3 different products&#10;5. [ ] Run flutter analyze & hot reload test&#10;6. [ ] Mark complete & attempt_completion&#10;
+# Custom Professional Login Screen Implementation
+
+## Approved Plan Steps
+
+### 1. Create TODO.md (✅ Completed)
+
+### 2. Create login widgets and screen
+- [✅] `lib/features/auth/login/widgets/custom_text_field.dart`
+- [✅] `lib/features/auth/login/widgets/custom_submit_btn.dart`
+- [✅] `lib/features/auth/login/widgets/social_buttons.dart`
+- [✅] `lib/features/auth/login/view/login_screen.dart`
+
+### 3. Update routes
+- [✅] Edit `lib/core/routes/app_router.dart` to add login route handler
+
+### 4. Add localization keys
+- [ ] Edit `assets/lang/ar.json`
+- [ ] Edit `assets/lang/en.json`
+
+### 5. Test & Complete
+- [ ] `flutter pub get`
+- [ ] Run `flutter run` and test /login
+- [ ] Responsive/RTL/animations check
+- [ ] attempt_completion
+
+**Next Step: Create widgets in parallel**
+
