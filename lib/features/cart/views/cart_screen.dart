@@ -20,13 +20,13 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
       imageUrl: 'assets/images/ChatGPT Image Mar 2, 2026, 12_28_33 PM.png',
     ),
     CartItem(
-      title: 'Top Picks Nearby',
+      title: 'Retro Nuptse Jacket',
       price: 120,
       imageUrl: 'assets/images/ChatGPT Image Mar 2, 2026, 11_54_22 AM.png',
     ),
     CartItem(
       title: 'Top Picks Nearby',
-      price: 120,
+      price: 90,
       imageUrl:
           'assets/images/vecteezy_white-hoodie-isolated-on-transparent-background_45857884.png',
     ),
@@ -85,8 +85,7 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
           'Cart',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
         ),
-      
-      
+        automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: AnimatedBuilder(
@@ -117,6 +116,20 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
+                    // app bar
+                    // Padding(
+                    //   padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    //   child: const Text(
+                    //     'Cart',
+                    //     style: TextStyle(
+                    //       fontSize: 24,
+                    //       fontWeight: FontWeight.bold,
+                    //     ),
+                    //   ),
+                    // ),
+                    
+
+                  
                     Expanded(
                       child: ListView.builder(
                         itemCount: items.length,
