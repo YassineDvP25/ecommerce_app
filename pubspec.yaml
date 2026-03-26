@@ -57,6 +57,7 @@ dependencies:
   auto_route: ^11.1.0
   get_it: ^9.2.0
   flutter_credit_card: ^4.1.0
+  device_preview: ^1.2.0
 
 dev_dependencies:
   flutter_test:

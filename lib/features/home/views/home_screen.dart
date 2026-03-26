@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
         final fade = Tween(
           begin: 0.0,
           end: 1.0,
-        ).animate(CurvedAnimation(parent: animation, curve: Curves.easeInOut));
+        ).animate(CurvedAnimation(parent: animation, curve: Curves.easeInOut));   
 
         final slide = Tween(
           begin: const Offset(0, 0.05),

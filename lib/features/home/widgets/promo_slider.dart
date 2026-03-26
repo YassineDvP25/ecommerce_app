@@ -135,7 +135,7 @@ class _PromoSliderState extends State<PromoSlider>
                               ),
                               child: Image.asset(
                                 promoItems[index]['image']!,
-                                "assets/images/black_hodie.png",
+                                
                                 width: 100 * widget.scale,
                               ),
                             ),
@@ -154,7 +154,6 @@ class _PromoSliderState extends State<PromoSlider>
                               SizedBox(height: 6 * widget.scale),
                               Text(
                                 promoItems[index]['title']!,
-                                "Top Trending\nHoodies",
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 21 * widget.scale,

@@ -38,7 +38,7 @@ class BuyButton extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: Text(
-                      "\$${price.toStringAsFixed(1)}",
+                      "\$120.00",
                       style: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
@@ -54,7 +54,7 @@ class BuyButton extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           behavior: SnackBarBehavior.floating,
-                          content: Text("Ultra Added To Cart 🚀"),
+                          content: Text("Retro Nuptse Jacket Added To Cart 🚀"),
                         ),
                       );
                     },

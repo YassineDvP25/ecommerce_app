@@ -132,7 +132,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                             children: [
                               // Product Name and Quantity
                               const Text(
-                                "Cotton Sweater",
+                                "Retro Nuptse Jacket",
                                 style: TextStyle(
                                   fontSize: 26,
                                   fontWeight: FontWeight.bold,
