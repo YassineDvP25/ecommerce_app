@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:ecommerce/core/routes/app_router.dart';
+import 'package:ecommerce/core/routes/routes.dart';
 import 'package:ecommerce/features/auth/login/widgets/custom_submit_btn.dart';
 import 'package:ecommerce/features/auth/login/widgets/social_buttons.dart';
 import 'package:flutter/material.dart';
@@ -154,14 +156,42 @@ class _LoginScreenState extends State<LoginScreen>
                             const SizedBox(height: 25),
 
                             /// LOGIN BUTTON
-                            CustomSubmitBtn(text: 'Login', onPressed: () {}),
+                            CustomSubmitBtn(
+                              text: 'Login',
+                              onPressed: () async {
+                                if (!formKey.currentState!.validate()) return;
+
+                                setState(() {
+                                  loading = true;
+                                  success = false;
+                                });
+
+                                await Future.delayed(
+                                  const Duration(seconds: 2),
+                                );
+
+                                setState(() {
+                                  loading = false;
+                                  success = true;
+                                });
+
+                                /// 🔥 الانتقال بعد النجاح
+                                await Future.delayed(
+                                  const Duration(milliseconds: 800),
+                                );
+
+                                if (mounted) {
+                                  Navigator.pop(context);
+                                }
+                              },
+                            ),
                           ],
                         ),
                       ),
                       SizedBox(height: 90),
                       SocialButtons(),
                       // you have not an account? sign up
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 30),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -173,6 +203,10 @@ class _LoginScreenState extends State<LoginScreen>
                           GestureDetector(
                             onTap: () {
                               // Navigate to sign up screen
+                              AppRouter.navigateAndReplace(
+                                context,
+                                Routes.signup,
+                              );
                             },
                             child: const Text(
                               "Sign Up",

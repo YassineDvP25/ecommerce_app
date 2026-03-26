@@ -1,3 +1,4 @@
+import 'package:ecommerce/features/auth/signup/view/signup_screen.dart';
 import 'package:ecommerce/features/cart/views/cart_screen.dart';
 import 'package:ecommerce/features/checkout/cubit/checkout_cubit.dart';
 import 'package:ecommerce/features/checkout/views/checkout_screen.dart';
@@ -65,10 +66,13 @@ class AppRouter {
           },
         );
       case Routes.login:
+      return _buildRoute(const LoginScreen(), settings);
+        
+      case Routes.signup:
         return PageRouteBuilder(
           settings: settings,
           transitionDuration: const Duration(milliseconds: 500),
-          pageBuilder: (_, __, ___) => const LoginScreen(),
+          pageBuilder: (_, __, ___) => const SignUpScreen(),
           transitionsBuilder: (_, animation, __, child) {
             final fade = CurvedAnimation(
               parent: animation,
