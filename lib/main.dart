@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -64,7 +63,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
           ),
           themeMode: ThemeMode.system,
-          initialRoute: Routes.login,
+          initialRoute: Routes.home,
           onGenerateRoute: AppRouter.generateRoute,
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
