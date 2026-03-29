@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/typography.dart';
 
 class QuantitySelector extends StatelessWidget {
   final int quantity;
@@ -25,7 +26,9 @@ class QuantitySelector extends StatelessWidget {
           child: Text(
             "$quantity",
             key: ValueKey(quantity),
-            style: const TextStyle(fontSize: 18),
+            style: AppTypography.priceLarge.copyWith(
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
         IconButton(

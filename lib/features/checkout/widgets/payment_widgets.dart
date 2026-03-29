@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce/core/theme/colors.dart';
+import 'package:ecommerce/core/theme/typography.dart';
 
 /// يعرض حقل الإدخال مع أيقونة اختيارية
 class PaymentInputField extends StatelessWidget {
@@ -155,7 +156,7 @@ class CardFront extends StatelessWidget {
         children: [
           Text(
             nameController.text.isEmpty ? "Card Holder" : nameController.text,
-            style: const TextStyle(color: AppColors2.white),
+            style: AppTypography.input,
           ),
 
           const Spacer(),
@@ -239,15 +240,15 @@ class PaymentCard extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text("Reshma Uday", style: TextStyle(color: AppColors2.white)),
-          Spacer(),
-          Text(
+        children: [
+          Text("Reshma Uday", style: AppTypography.input),
+          const Spacer(),
+          const Text(
             "35-070-0003-3256-2022",
             style: TextStyle(color: AppColors2.white, letterSpacing: 2),
           ),
-          SizedBox(height: 10),
-          Text("Exp. 12/26", style: TextStyle(color: AppColors2.white70)),
+          const SizedBox(height: 10),
+          const Text("Exp. 12/26", style: TextStyle(color: AppColors2.white70)),
         ],
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:animate_do/animate_do.dart';
 import '../../../../../../core/theme/colors.dart';
+import '../../../../../../core/theme/typography.dart';
 
 class CustomSubmitBtn extends StatelessWidget {
   final String text;
@@ -48,15 +49,7 @@ class CustomSubmitBtn extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                     ),
                     alignment: Alignment.center,
-                    child: Text(
-                      text,
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors2.white,
-                        fontFamily: 'SofiaSans',
-                      ),
-                    ),
+                    child: Text(text, style: AppTypography.buttonPrimary),
                   )
                   : SizedBox(
                     height: 24.h,

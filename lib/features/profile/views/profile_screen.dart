@@ -2,7 +2,6 @@ import 'package:ecommerce/features/profile/widgets/actions_list.dart';
 import 'package:ecommerce/features/profile/widgets/profile_card.dart';
 import 'package:ecommerce/features/profile/widgets/profile_header.dart';
 import 'package:ecommerce/features/profile/widgets/top_curve.dart';
-import 'package:ecommerce/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/core/theme/colors.dart';
 
