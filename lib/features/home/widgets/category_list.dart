@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class CategorySelector extends StatefulWidget {
   const CategorySelector({super.key});
@@ -46,8 +47,8 @@ class _CategorySelectorState extends State<CategorySelector> {
                 gradient: LinearGradient(
                   colors:
                       isSelected
-                          ? [const Color(0xFF000000), const Color(0xFF606060)]
-                          : [Colors.white, Colors.white],
+                          ? [AppColors2.black, AppColors2.darkBorder]
+                          : [AppColors2.white, AppColors2.white],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                 ),
@@ -61,15 +62,12 @@ class _CategorySelectorState extends State<CategorySelector> {
                     curve: Curves.easeInOut,
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: isSelected ? Colors.white : Colors.white,
+                      color: isSelected ? AppColors2.white : AppColors2.white,
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
                       item['icon'],
-                      color:
-                          isSelected
-                              ? const Color.fromARGB(255, 255, 90, 40)
-                              : Colors.black,
+                      color: isSelected ? AppColors2.peach : AppColors2.black,
                       size: 22,
                     ),
                   ),
@@ -83,7 +81,7 @@ class _CategorySelectorState extends State<CategorySelector> {
                               child: Text(
                                 item['label'],
                                 style: const TextStyle(
-                                  color: Colors.white,
+                                  color: AppColors2.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 15,
                                 ),

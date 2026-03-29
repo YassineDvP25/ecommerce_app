@@ -2,6 +2,7 @@ import 'package:ecommerce/features/checkout/cubit/checkout_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class CreditCardeForm extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -18,10 +19,10 @@ class CreditCardeForm extends StatelessWidget {
               labelText: 'Card Number',
               hintText: 'XXXX XXXX XXXX XXXX',
               labelStyle: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold
+                color: AppColors2.black,
+                fontWeight: FontWeight.bold,
               ),
-              
+
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -32,9 +33,9 @@ class CreditCardeForm extends StatelessWidget {
 
               labelText: 'Expiry Date',
               hintText: 'MM/YY',
-                labelStyle: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold
+              labelStyle: TextStyle(
+                color: AppColors2.black,
+                fontWeight: FontWeight.bold,
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -46,9 +47,9 @@ class CreditCardeForm extends StatelessWidget {
 
               labelText: 'CVV',
               hintText: 'XXX',
-                labelStyle: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold
+              labelStyle: TextStyle(
+                color: AppColors2.black,
+                fontWeight: FontWeight.bold,
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -59,9 +60,9 @@ class CreditCardeForm extends StatelessWidget {
               floatingLabelBehavior: FloatingLabelBehavior.always,
               labelText: 'Card Holder',
               hintText: 'Yassine El Anssari',
-                labelStyle: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold
+              labelStyle: TextStyle(
+                color: AppColors2.black,
+                fontWeight: FontWeight.bold,
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),

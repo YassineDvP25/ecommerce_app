@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 /// يعرض حقل الإدخال مع أيقونة اختيارية
 class PaymentInputField extends StatelessWidget {
@@ -27,7 +28,7 @@ class PaymentInputField extends StatelessWidget {
         hintText: hint,
         prefixIcon: icon != null ? Icon(icon) : null,
         filled: true,
-        fillColor: Colors.white,
+        fillColor: AppColors2.white,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,
@@ -49,12 +50,12 @@ class ProgressStep extends StatelessWidget {
       width: 22,
       height: 22,
       decoration: BoxDecoration(
-        color: active ? Colors.green : Colors.grey[300],
+        color: active ? AppColors2.green : Colors.grey[300],
         shape: BoxShape.circle,
       ),
       child:
           active
-              ? const Icon(Icons.check, size: 14, color: Colors.white)
+              ? const Icon(Icons.check, size: 14, color: AppColors2.white)
               : null,
     );
   }
@@ -66,7 +67,7 @@ class ProgressLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(child: Container(height: 3, color: Colors.green));
+    return Expanded(child: Container(height: 3, color: AppColors2.green));
   }
 }
 
@@ -82,7 +83,7 @@ class DotIndicator extends StatelessWidget {
       width: active ? 10 : 6,
       height: active ? 10 : 6,
       decoration: BoxDecoration(
-        color: active ? Colors.black : Colors.grey,
+        color: active ? AppColors2.black : Colors.grey,
         shape: BoxShape.circle,
       ),
     );
@@ -96,11 +97,11 @@ BoxDecoration cardDecoration() {
     gradient: const LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
-      colors: [Color(0xFF0F2A75), Color(0xFF2D8C9F)],
+      colors: [AppColors2.deepBlue, AppColors2.midTeal],
     ),
     boxShadow: [
       BoxShadow(
-        color: Colors.black.withOpacity(0.25),
+        color: AppColors2.black.withOpacity(0.25),
         blurRadius: 25,
         offset: const Offset(0, 12),
       ),
@@ -118,9 +119,9 @@ Widget cardLightEffect() {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Colors.white.withOpacity(0.15),
-              Colors.transparent,
-              Colors.transparent,
+              AppColors2.white.withOpacity(0.15),
+              AppColors2.transparent,
+              AppColors2.transparent,
             ],
           ),
         ),
@@ -154,7 +155,7 @@ class CardFront extends StatelessWidget {
         children: [
           Text(
             nameController.text.isEmpty ? "Card Holder" : nameController.text,
-            style: const TextStyle(color: Colors.white),
+            style: const TextStyle(color: AppColors2.white),
           ),
 
           const Spacer(),
@@ -164,7 +165,7 @@ class CardFront extends StatelessWidget {
                 ? "XXXX XXXX XXXX XXXX"
                 : cardNumberController.text,
             style: const TextStyle(
-              color: Colors.white,
+              color: AppColors2.white,
               letterSpacing: 2,
               fontSize: 18,
             ),
@@ -174,7 +175,7 @@ class CardFront extends StatelessWidget {
 
           Text(
             expiryController.text.isEmpty ? "MM/YY" : expiryController.text,
-            style: const TextStyle(color: Colors.white70),
+            style: const TextStyle(color: AppColors2.white70),
           ),
         ],
       ),
@@ -195,14 +196,14 @@ class CardBack extends StatelessWidget {
       decoration: cardDecoration(),
       child: Column(
         children: [
-          Container(height: 50, color: Colors.black),
+          Container(height: 50, color: AppColors2.black),
 
           const SizedBox(height: 20),
 
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
             padding: const EdgeInsets.all(10),
-            color: Colors.white,
+            color: AppColors2.white,
             child: Align(
               alignment: Alignment.centerRight,
               child: Text(
@@ -230,23 +231,23 @@ class PaymentCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         gradient: const LinearGradient(
-          colors: [Color(0xff0F2A75), Color(0xff2D8C9F)],
+          colors: [AppColors2.deepBlue, AppColors2.midTeal],
         ),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(.2), blurRadius: 15),
+          BoxShadow(color: AppColors2.black.withOpacity(.2), blurRadius: 15),
         ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
-          Text("Reshma Uday", style: TextStyle(color: Colors.white)),
+          Text("Reshma Uday", style: TextStyle(color: AppColors2.white)),
           Spacer(),
           Text(
             "35-070-0003-3256-2022",
-            style: TextStyle(color: Colors.white, letterSpacing: 2),
+            style: TextStyle(color: AppColors2.white, letterSpacing: 2),
           ),
           SizedBox(height: 10),
-          Text("Exp. 12/26", style: TextStyle(color: Colors.white70)),
+          Text("Exp. 12/26", style: TextStyle(color: AppColors2.white70)),
         ],
       ),
     );

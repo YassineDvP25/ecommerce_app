@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class SliverAppBarProduct extends StatefulWidget {
   final int selectedColorIndex;
@@ -33,7 +34,7 @@ class _SliverAppBarProductState extends State<SliverAppBarProduct> {
     return SliverAppBar(
       expandedHeight: 380,
       pinned: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors2.transparent,
       elevation: 0,
       flexibleSpace: FlexibleSpaceBar(
         background: GestureDetector(

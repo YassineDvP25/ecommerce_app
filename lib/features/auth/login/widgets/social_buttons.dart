@@ -16,7 +16,7 @@ class SocialButtons extends StatelessWidget {
             child: _buildSocialButton(
               icon: Icons.g_mobiledata,
               label: 'Google',
-              color: const Color(0xFFDB4437),
+              color: AppColors2.accentRed,
               onTap: () {},
             ),
           ),
@@ -29,7 +29,7 @@ class SocialButtons extends StatelessWidget {
             child: _buildSocialButton(
               icon: Icons.apple,
               label: 'Apple',
-              color: const Color(0xFF000000),
+              color: AppColors2.black,
               onTap: () {},
             ),
           ),
@@ -49,11 +49,11 @@ class SocialButtons extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 20.w),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors2.white,
           borderRadius: BorderRadius.circular(12.r),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: AppColors2.black.withOpacity(0.1),
               blurRadius: 10.r,
               offset: Offset(0, 4.h),
             ),

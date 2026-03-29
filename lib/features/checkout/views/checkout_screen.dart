@@ -4,6 +4,7 @@ import 'package:ecommerce/features/checkout/widgets/credit_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 /// Payment method selection and credit card input screen
 class CheckoutScreen extends StatefulWidget {
@@ -39,7 +40,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffF5F6FA),
+      backgroundColor: AppColors2.overlayBackground,
       body: SafeArea(
         child: BlocBuilder<CheckoutCubit, CheckoutState>(
           builder: (context, state) {
@@ -74,12 +75,10 @@ class _CheckoutScreenState extends State<CheckoutScreen>
                             },
                           ),
 
-
                           const SizedBox(height: 50),
 
                           /// Credit Card Form
                           CreditCardeForm(formKey: formKey),
-
 
                           const SizedBox(height: 10),
 
@@ -89,7 +88,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>
                               Switch(
                                 value: true,
                                 onChanged: (v) {},
-                                activeColor: Colors.green,
+                                activeColor: AppColors2.green,
                               ),
                               const Text(
                                 "Save card details for future payment",
@@ -138,7 +137,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Icon(Icons.arrow_back , size: 28,),
+        const Icon(Icons.arrow_back, size: 28),
         const Text(
           "Payment method",
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
@@ -167,18 +166,19 @@ class _CheckoutScreenState extends State<CheckoutScreen>
       width: 22,
       height: 22,
       decoration: BoxDecoration(
-        color: active ? Colors.green : Colors.grey[300],
+        color: active ? AppColors2.green : Colors.grey[300],
         shape: BoxShape.circle,
       ),
-      child: active
-              ? const Icon(Icons.check, size: 14, color: Colors.white)
+      child:
+          active
+              ? const Icon(Icons.check, size: 14, color: AppColors2.white)
               : null,
     );
   }
 
   /// Build progress line between steps
   Widget _buildProgressLine() {
-    return Expanded(child: Container(height: 3, color: Colors.green));
+    return Expanded(child: Container(height: 3, color: AppColors2.green));
   }
 
   /// Build pay button
@@ -191,7 +191,7 @@ class _CheckoutScreenState extends State<CheckoutScreen>
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          backgroundColor: const Color(0xff4CD964),
+          backgroundColor: AppColors2.brightGreen,
         ),
         onPressed: () {
           // TODO: Implement payment processing
@@ -204,4 +204,3 @@ class _CheckoutScreenState extends State<CheckoutScreen>
     );
   }
 }
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class CustomSearchBar extends StatefulWidget {
   const CustomSearchBar({super.key});
@@ -32,11 +33,11 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
       child: Hero(
         tag: "searchBar",
         child: Material(
-          color: Colors.transparent,
+          color: AppColors2.transparent,
           child: Container(
             height: 50,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors2.white,
               borderRadius: BorderRadius.circular(25),
             ),
             child: TextField(

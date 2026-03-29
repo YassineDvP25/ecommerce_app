@@ -1,3 +1,4 @@
+import 'package:ecommerce/features/auth/signup/view/signup_screen.dart';
 import 'package:ecommerce/features/cart/views/cart_screen.dart';
 import 'package:ecommerce/features/checkout/cubit/checkout_cubit.dart';
 import 'package:ecommerce/features/checkout/views/checkout_screen.dart';
@@ -7,8 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes.dart';
 import 'package:ecommerce/features/auth/login/view/login_screen.dart';
-
-
 
 /// Application Router
 class AppRouter {
@@ -65,10 +64,13 @@ class AppRouter {
           },
         );
       case Routes.login:
+        return _buildRoute(const LoginScreen(), settings);
+
+      case Routes.signup:
         return PageRouteBuilder(
           settings: settings,
           transitionDuration: const Duration(milliseconds: 500),
-          pageBuilder: (_, __, ___) => const LoginScreen(),
+          pageBuilder: (_, __, ___) => const SignUpScreen(),
           transitionsBuilder: (_, animation, __, child) {
             final fade = CurvedAnimation(
               parent: animation,
@@ -77,7 +79,9 @@ class AppRouter {
             final slide = Tween(
               begin: const Offset(0.0, 0.3),
               end: Offset.zero,
-            ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic));
+            ).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
+            );
             return FadeTransition(
               opacity: fade,
               child: SlideTransition(position: slide, child: child),
@@ -91,7 +95,6 @@ class AppRouter {
           ),
           settings,
         );
-
     }
   }
 

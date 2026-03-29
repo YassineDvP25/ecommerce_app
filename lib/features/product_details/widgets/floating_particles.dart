@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class FloatingParticles extends StatelessWidget {
   const FloatingParticles({super.key});
@@ -20,7 +21,7 @@ class FloatingParticles extends StatelessWidget {
                 height: Random().nextDouble() * 6 + 2,
                 width: Random().nextDouble() * 6 + 2,
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: AppColors2.white,
                   shape: BoxShape.circle,
                 ),
               ),

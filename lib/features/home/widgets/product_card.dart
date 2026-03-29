@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel product;
@@ -11,11 +12,11 @@ class ProductCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors2.white,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.06),
+              color: AppColors2.black.withOpacity(0.06),
               blurRadius: 12,
               offset: const Offset(0, 3),
             ),
@@ -40,11 +41,7 @@ class ProductCard extends StatelessWidget {
                     borderRadius: const BorderRadius.vertical(
                       top: Radius.circular(16),
                     ),
-                    child: Image.asset(
-                      
-                    product.imageUrl,
-                      fit: BoxFit.fitHeight,
-                    ),
+                    child: Image.asset(product.imageUrl, fit: BoxFit.fitHeight),
                   ),
                 ),
                 Positioned(
@@ -54,11 +51,11 @@ class ProductCard extends StatelessWidget {
                     width: 32,
                     height: 32,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColors2.white,
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
+                          color: AppColors2.black.withOpacity(0.1),
                           blurRadius: 8,
                         ),
                       ],
@@ -68,7 +65,10 @@ class ProductCard extends StatelessWidget {
                           ? Icons.favorite
                           : Icons.favorite_border,
                       size: 18,
-                      color: product.isFavorite ? Colors.red : Colors.grey[600],
+                      color:
+                          product.isFavorite
+                              ? AppColors2.red
+                              : Colors.grey[600],
                     ),
                   ),
                 ),
@@ -85,7 +85,7 @@ class ProductCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      color: Colors.black87,
+                      color: AppColors2.black87,
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -98,7 +98,7 @@ class ProductCard extends StatelessWidget {
                         size: 14,
                         color:
                             index < product.rating
-                                ? Colors.orange
+                                ? AppColors2.orange
                                 : Colors.grey[300],
                       );
                     }),
@@ -112,19 +112,19 @@ class ProductCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: AppColors2.black87,
                         ),
                       ),
                       Container(
                         width: 36,
                         height: 36,
                         decoration: const BoxDecoration(
-                          color: Colors.black87,
+                          color: AppColors2.black87,
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(
                           Icons.shopping_bag_outlined,
-                          color: Colors.white,
+                          color: AppColors2.white,
                           size: 18,
                         ),
                       ),

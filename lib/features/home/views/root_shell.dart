@@ -66,8 +66,10 @@ class _RootShellState extends State<RootShell> {
             curve: Curves.easeOut,
           );
 
-          final scaleTween = Tween<double>(begin: 0.98, end: 1.0)
-              .chain(CurveTween(curve: Curves.easeOut));
+          final scaleTween = Tween<double>(
+            begin: 0.98,
+            end: 1.0,
+          ).chain(CurveTween(curve: Curves.easeOut));
 
           return FadeTransition(
             opacity: fade,

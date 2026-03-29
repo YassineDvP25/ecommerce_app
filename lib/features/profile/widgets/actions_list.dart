@@ -51,7 +51,9 @@ class ActionsList extends StatelessWidget {
       children: List.generate(
         items.length,
         (index) => Padding(
-          padding: EdgeInsets.only(bottom: index == items.length - 1 ? 0 : 12 * scale),
+          padding: EdgeInsets.only(
+            bottom: index == items.length - 1 ? 0 : 12 * scale,
+          ),
           child: ActionTile(item: items[index], scale: scale),
         ),
       ),

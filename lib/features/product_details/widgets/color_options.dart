@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class ColorOptions extends StatefulWidget {
   final List<Color> colors;
@@ -54,7 +55,7 @@ class _ColorOptionsState extends State<ColorOptions> {
               shape: BoxShape.circle,
               // add a faint border so white option is visible on white
               border:
-                  widget.colors[i] == Colors.white
+                  widget.colors[i] == AppColors2.white
                       ? Border.all(color: Colors.grey.shade400)
                       : null,
               boxShadow:

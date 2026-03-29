@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'action_item.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class ActionTile extends StatelessWidget {
   const ActionTile({super.key, required this.item, required this.scale});
@@ -10,13 +11,16 @@ class ActionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16 * scale, vertical: 14 * scale),
+      padding: EdgeInsets.symmetric(
+        horizontal: 16 * scale,
+        vertical: 14 * scale,
+      ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors2.white,
         borderRadius: BorderRadius.circular(18 * scale),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: AppColors2.black.withOpacity(0.04),
             blurRadius: 12,
             offset: const Offset(0, 8),
           ),
@@ -28,14 +32,10 @@ class ActionTile extends StatelessWidget {
             height: 44 * scale,
             width: 44 * scale,
             decoration: const BoxDecoration(
-              color: Color(0xFFF5F5F5),
+              color: AppColors2.scaffoldBackground,
               shape: BoxShape.circle,
             ),
-            child: Icon(
-              item.icon,
-              color: Colors.black87,
-              size: 22 * scale,
-            ),
+            child: Icon(item.icon, color: AppColors2.black87, size: 22 * scale),
           ),
           SizedBox(width: 14 * scale),
           Expanded(
@@ -48,7 +48,7 @@ class ActionTile extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 15 * scale,
                     fontWeight: FontWeight.w700,
-                    color: Colors.black.withOpacity(0.9),
+                    color: AppColors2.black.withOpacity(0.9),
                   ),
                 ),
                 SizedBox(height: 4 * scale),
@@ -56,7 +56,7 @@ class ActionTile extends StatelessWidget {
                   item.subtitle,
                   style: TextStyle(
                     fontSize: 12.5 * scale,
-                    color: Colors.black.withOpacity(0.55),
+                    color: AppColors2.black.withOpacity(0.55),
                     height: 1.2,
                   ),
                 ),
@@ -65,7 +65,7 @@ class ActionTile extends StatelessWidget {
           ),
           Icon(
             Icons.chevron_right,
-            color: Colors.black.withOpacity(0.4),
+            color: AppColors2.black.withOpacity(0.4),
             size: 22 * scale,
           ),
         ],

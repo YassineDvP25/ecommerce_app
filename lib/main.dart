@@ -7,6 +7,7 @@ import 'core/routes/routes.dart';
 import 'core/di/injection_container.dart' as di;
 import 'core/localization/localization_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,7 @@ void main() async {
   // Set system UI overlay style
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
+      statusBarColor: AppColors2.transparent,
       statusBarIconBrightness: Brightness.dark,
     ),
   );
@@ -35,7 +36,7 @@ void main() async {
       path: LocalizationManager.translationsPath,
       fallbackLocale: LocalizationManager.fallbackLocale,
       startLocale: LocalizationManager.fallbackLocale,
-      child: MyApp(), 
+      child: MyApp(),
     ),
   );
 }

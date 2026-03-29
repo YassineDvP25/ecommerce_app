@@ -3,6 +3,7 @@ import 'package:ecommerce/features/home/widgets/product_grid.dart';
 import 'package:ecommerce/features/home/widgets/section_header.dart';
 import 'package:ecommerce/features/search/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key, this.onClose});
@@ -12,7 +13,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: AppColors2.scaffoldBackground,
       body: SafeArea(
         child: CustomScrollView(
           physics: const BouncingScrollPhysics(),

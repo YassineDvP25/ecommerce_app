@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class TopCurve extends StatelessWidget {
   const TopCurve({super.key, required this.scale});
@@ -11,7 +12,7 @@ class TopCurve extends StatelessWidget {
       height: 220 * scale,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0xFF1E1E1E), Color(0xFF3F3F3F)],
+          colors: [AppColors2.surfaceDark, AppColors2.midGrey],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
@@ -21,7 +22,7 @@ class TopCurve extends StatelessWidget {
         child: Container(
           height: 26 * scale,
           decoration: const BoxDecoration(
-            color: Color(0xFFF3F3F3),
+            color: AppColors2.scaffoldBackgroundAlt,
             borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
           ),
         ),
