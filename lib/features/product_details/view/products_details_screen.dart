@@ -7,6 +7,7 @@ import 'package:ecommerce/features/product_details/widgets/sizes_list.dart';
 import 'package:ecommerce/features/product_details/widgets/quantity_selector.dart';
 import 'package:ecommerce/features/product_details/widgets/floating_particles.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key});
@@ -37,12 +38,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
 
   final List<String> sizes = ["S", "M", "L", "XL", "XXL"];
   final List<Color> colors = [
-    Colors.black,
-    Colors.white,
+    AppColors2.black,
+    AppColors2.white,
 
-    Colors.blue,
-    // Colors.deepPurple,
-    Colors.yellow,
+    AppColors2.blue,
+    // AppColors2.deepPurple,
+    AppColors2.yellow,
   ];
   final List<String> imagePaths = [
     'assets/images/ChatGPT Image Mar 2, 2026, 11_54_22 AM.png',
@@ -84,7 +85,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
 
     // determine if product colour is light so we can choose contrasting text
     final bool lightProduct =
-        themeColor == Colors.white || themeColor == Colors.yellow;
+        themeColor == AppColors2.white || themeColor == AppColors2.yellow;
 
     return Scaffold(
       backgroundColor: themeColor.withOpacity(0.15),
@@ -98,7 +99,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
               gradient: RadialGradient(
                 center: Alignment.topCenter,
                 radius: 1.2,
-                colors: [themeColor.withOpacity(0.4), Colors.white],
+                colors: [themeColor.withOpacity(0.4), AppColors2.white],
               ),
             ),
           ),
@@ -122,7 +123,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                     filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
                     child: Container(
                       padding: const EdgeInsets.all(24),
-                      color: Colors.white.withOpacity(0.7),
+                      color: AppColors2.white.withOpacity(0.7),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

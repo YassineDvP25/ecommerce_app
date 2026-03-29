@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class CustomHeader extends StatelessWidget {
   const CustomHeader({super.key});
@@ -10,9 +11,10 @@ class CustomHeader extends StatelessWidget {
       children: [
         Row(
           children: [
-             CircleAvatar(
+            CircleAvatar(
               radius: 26,
-              backgroundImage: Image.asset('assets/images/تنزيل (14).jpeg').image,
+              backgroundImage:
+                  Image.asset('assets/images/تنزيل (14).jpeg').image,
             ),
             const SizedBox(width: 14),
             Column(
@@ -23,7 +25,7 @@ class CustomHeader extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 18,
-                    color: Colors.white,
+                    color: AppColors2.white,
                   ),
                 ),
                 Text(
@@ -54,11 +56,11 @@ class CustomHeader extends StatelessWidget {
       width: 45,
       height: 45,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors2.white,
         shape: BoxShape.circle,
         border: Border.all(color: Colors.grey.withOpacity(0.2)),
       ),
-      child: Icon(icon, size: 22, color: Colors.black),
+      child: Icon(icon, size: 22, color: AppColors2.black),
     );
   }
 }

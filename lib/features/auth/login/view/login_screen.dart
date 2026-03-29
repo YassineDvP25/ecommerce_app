@@ -4,6 +4,7 @@ import 'package:ecommerce/core/routes/routes.dart';
 import 'package:ecommerce/features/auth/login/widgets/custom_submit_btn.dart';
 import 'package:ecommerce/features/auth/login/widgets/social_buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -89,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen>
                         child: const Icon(
                           Icons.shopping_bag,
                           size: 70,
-                          color: Colors.white,
+                          color: AppColors2.white,
                         ),
                       ),
 
@@ -100,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen>
                         style: TextStyle(
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: AppColors2.white,
                         ),
                       ),
 
@@ -145,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen>
                                   obscure
                                       ? Icons.visibility_off
                                       : Icons.visibility,
-                                  color: Colors.white,
+                                  color: AppColors2.white,
                                 ),
                                 onPressed: () {
                                   setState(() => obscure = !obscure);
@@ -197,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen>
                         children: [
                           const Text(
                             "Don't have an account?",
-                            style: TextStyle(color: Colors.white70),
+                            style: TextStyle(color: AppColors2.white70),
                           ),
                           const SizedBox(width: 5),
                           GestureDetector(
@@ -211,7 +212,7 @@ class _LoginScreenState extends State<LoginScreen>
                             child: const Text(
                               "Sign Up",
                               style: TextStyle(
-                                color: Colors.white,
+                                color: AppColors2.white,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -246,9 +247,9 @@ class _LoginScreenState extends State<LoginScreen>
         child: Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(.08),
+            color: AppColors2.white.withOpacity(.08),
             borderRadius: BorderRadius.circular(25),
-            border: Border.all(color: Colors.white.withOpacity(.2)),
+            border: Border.all(color: AppColors2.white.withOpacity(.2)),
           ),
           child: child,
         ),
@@ -270,20 +271,20 @@ class _LoginScreenState extends State<LoginScreen>
       obscureText: obscureText,
       validator: validator,
 
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(color: AppColors2.white),
 
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: const TextStyle(color: Colors.white54),
+        hintStyle: const TextStyle(color: AppColors2.white54),
 
-        prefixIcon: Icon(icon, color: Colors.white),
+        prefixIcon: Icon(icon, color: AppColors2.white),
 
         suffixIcon: suffix,
 
         filled: true,
-        fillColor: Colors.white.withOpacity(.05),
+        fillColor: AppColors2.white.withOpacity(.05),
 
-        errorStyle: const TextStyle(color: Colors.redAccent),
+        errorStyle: const TextStyle(color: AppColors2.redAccent),
 
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(18),
@@ -326,7 +327,7 @@ class _LoginScreenState extends State<LoginScreen>
         width: double.infinity,
 
         decoration: BoxDecoration(
-          color: success ? Colors.green : Colors.white,
+          color: success ? AppColors2.green : AppColors2.white,
           borderRadius: BorderRadius.circular(18),
         ),
 
@@ -341,15 +342,15 @@ class _LoginScreenState extends State<LoginScreen>
                       width: 22,
                       child: CircularProgressIndicator(
                         strokeWidth: 2,
-                        color: Colors.black,
+                        color: AppColors2.black,
                       ),
                     )
                     : success
-                    ? const Icon(Icons.check, color: Colors.white)
+                    ? const Icon(Icons.check, color: AppColors2.white)
                     : const Text(
                       "Login",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: AppColors2.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

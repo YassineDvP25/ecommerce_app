@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class SizesList extends StatelessWidget {
   final List<String> sizes;
@@ -25,8 +26,8 @@ class SizesList extends StatelessWidget {
           final selected = selectedIndex == i;
 
           final bool lightProduct =
-              colors[selectedColorIndex] == Colors.white ||
-              colors[selectedColorIndex] == Colors.yellow;
+              colors[selectedColorIndex] == AppColors2.white ||
+              colors[selectedColorIndex] == AppColors2.yellow;
 
           return GestureDetector(
             onTap: () => onSelected(i),
@@ -51,8 +52,10 @@ class SizesList extends StatelessWidget {
                   style: TextStyle(
                     color:
                         selected
-                            ? (lightProduct ? Colors.black : Colors.white)
-                            : Colors.black87,
+                            ? (lightProduct
+                                ? AppColors2.black
+                                : AppColors2.white)
+                            : AppColors2.black87,
                   ),
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key, required this.scale});
@@ -21,26 +22,18 @@ class ProfileHeader extends StatelessWidget {
           style: TextStyle(
             fontSize: 20 * scale,
             fontWeight: FontWeight.w700,
-            color: Colors.white,
+            color: AppColors2.white,
             letterSpacing: 0.3,
           ),
         ),
-        _CircleIcon(
-          icon: Icons.edit_outlined,
-          scale: scale,
-          onTap: () {},
-        ),
+        _CircleIcon(icon: Icons.edit_outlined, scale: scale, onTap: () {}),
       ],
     );
   }
 }
 
 class _CircleIcon extends StatelessWidget {
-  const _CircleIcon({
-    required this.icon,
-    required this.scale,
-    this.onTap,
-  });
+  const _CircleIcon({required this.icon, required this.scale, this.onTap});
 
   final IconData icon;
   final double scale;
@@ -54,11 +47,11 @@ class _CircleIcon extends StatelessWidget {
         height: 44 * scale,
         width: 44 * scale,
         decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.12),
+          color: AppColors2.black.withOpacity(0.12),
           shape: BoxShape.circle,
-          border: Border.all(color: Colors.white.withOpacity(0.2)),
+          border: Border.all(color: AppColors2.white.withOpacity(0.2)),
         ),
-        child: Icon(icon, color: Colors.white, size: 22 * scale),
+        child: Icon(icon, color: AppColors2.white, size: 22 * scale),
       ),
     );
   }

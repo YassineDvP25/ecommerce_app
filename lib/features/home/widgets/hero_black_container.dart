@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class HeroBlackContainer extends StatelessWidget {
   final ValueNotifier<double> opacityNotifier;
@@ -30,7 +31,7 @@ class HeroBlackContainer extends StatelessWidget {
             height: 200,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF000000), Color(0xFF606060)],
+                colors: [AppColors2.black, AppColors2.darkBorder],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
               ),

@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class SummarySection extends StatefulWidget {
   final double subtotal;
@@ -32,10 +33,14 @@ class _SummarySectionState extends State<SummarySection> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors2.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: const [
-          BoxShadow(color: Colors.black12, blurRadius: 6, offset: Offset(0, 3)),
+          BoxShadow(
+            color: AppColors2.black12,
+            blurRadius: 6,
+            offset: Offset(0, 3),
+          ),
         ],
       ),
       child: Column(
@@ -71,7 +76,7 @@ class _SummarySectionState extends State<SummarySection> {
                             });
                           },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
+                    backgroundColor: AppColors2.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -80,7 +85,7 @@ class _SummarySectionState extends State<SummarySection> {
                   child: Text(
                     _applied ? 'Applied' : 'Apply',
                     style: TextStyle(
-                      color: _applied ? Colors.grey : Colors.white,
+                      color: _applied ? Colors.grey : AppColors2.white,
                     ),
                   ),
                 ),
@@ -108,7 +113,7 @@ class _SummarySectionState extends State<SummarySection> {
             child: DecoratedBox(
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF000000), Color(0xFF606060)],
+                  colors: [AppColors2.black, AppColors2.darkBorder],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -116,25 +121,22 @@ class _SummarySectionState extends State<SummarySection> {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    Routes.checkout,
-                  );
+                  Navigator.pushNamed(context, Routes.checkout);
                 },
                 style: ElevatedButton.styleFrom(
                   elevation: 5,
-                  
-                  backgroundColor: Colors.white,
-                  shadowColor: Colors.white,
+
+                  backgroundColor: AppColors2.white,
+                  shadowColor: AppColors2.white,
                   shape: RoundedRectangleBorder(
-                    side: const BorderSide(color: Colors.black, width: 0.9),
+                    side: const BorderSide(color: AppColors2.black, width: 0.9),
                     borderRadius: BorderRadius.circular(25),
                   ),
                 ),
                 child: const Text(
                   'Proceed To Checkout',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: AppColors2.black,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),

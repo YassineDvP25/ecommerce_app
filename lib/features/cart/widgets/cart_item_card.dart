@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce/features/cart/models/cart_item.dart';
 import 'package:ecommerce/features/cart/widgets/bounce_button.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class CartItemCard extends StatelessWidget {
   final CartItem item;
@@ -19,10 +20,14 @@ class CartItemCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors2.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: const [
-          BoxShadow(color: Colors.black12, blurRadius: 6, offset: Offset(0, 3)),
+          BoxShadow(
+            color: AppColors2.black12,
+            blurRadius: 6,
+            offset: Offset(0, 3),
+          ),
         ],
       ),
       child: Row(

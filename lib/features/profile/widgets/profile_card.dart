@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({super.key, required this.scale});
@@ -8,13 +9,16 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20 * scale, vertical: 18 * scale),
+      padding: EdgeInsets.symmetric(
+        horizontal: 20 * scale,
+        vertical: 18 * scale,
+      ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors2.white,
         borderRadius: BorderRadius.circular(22 * scale),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.06),
+            color: AppColors2.black.withOpacity(0.06),
             blurRadius: 16,
             offset: const Offset(0, 10),
           ),
@@ -32,7 +36,7 @@ class ProfileCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 20 * scale,
               fontWeight: FontWeight.w700,
-              color: Colors.black87,
+              color: AppColors2.black87,
             ),
           ),
           SizedBox(height: 6 * scale),
@@ -40,7 +44,7 @@ class ProfileCard extends StatelessWidget {
             "yass24@gmail.com",
             style: TextStyle(
               fontSize: 14 * scale,
-              color: Colors.black.withOpacity(0.6),
+              color: AppColors2.black.withOpacity(0.6),
             ),
           ),
         ],

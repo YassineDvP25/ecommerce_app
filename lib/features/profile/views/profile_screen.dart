@@ -4,6 +4,7 @@ import 'package:ecommerce/features/profile/widgets/profile_header.dart';
 import 'package:ecommerce/features/profile/widgets/top_curve.dart';
 import 'package:ecommerce/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -29,17 +30,9 @@ class _ProfileScreenState extends State<ProfileScreen>
     _slide = Tween<Offset>(
       begin: const Offset(0, 0.1),
       end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.easeOutCubic,
-      ),
-    );
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic));
 
-    _fade = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOut,
-    );
+    _fade = CurvedAnimation(parent: _controller, curve: Curves.easeOut);
 
     _controller.forward();
   }
@@ -56,17 +49,18 @@ class _ProfileScreenState extends State<ProfileScreen>
     final scale = size.width / 375; // Responsive scale based on iPhone X width
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF3F3F3),
+      backgroundColor: AppColors2.scaffoldBackgroundAlt,
       body: Stack(
         children: [
           TopCurve(scale: scale),
           SafeArea(
             child: AnimatedBuilder(
               animation: _controller,
-              builder: (_, child) => FadeTransition(
-                opacity: _fade,
-                child: SlideTransition(position: _slide, child: child),
-              ),
+              builder:
+                  (_, child) => FadeTransition(
+                    opacity: _fade,
+                    child: SlideTransition(position: _slide, child: child),
+                  ),
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 padding: EdgeInsets.symmetric(
@@ -91,4 +85,3 @@ class _ProfileScreenState extends State<ProfileScreen>
     );
   }
 }
-

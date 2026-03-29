@@ -2,11 +2,10 @@ import 'dart:ui';
 import 'package:ecommerce/core/routes/app_router.dart';
 import 'package:ecommerce/core/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
-
-
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -14,7 +13,6 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen>
     with SingleTickerProviderStateMixin {
-
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -48,12 +46,11 @@ class _SignUpScreenState extends State<SignUpScreen>
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Stack(
         children: [
           /// BACKGROUND
-            Positioned.fill(
+          Positioned.fill(
             child: Image.asset("assets/images/s.jpeg", fit: BoxFit.cover),
           ),
 
@@ -68,14 +65,13 @@ class _SignUpScreenState extends State<SignUpScreen>
 
                   child: Column(
                     children: [
-
                       /// HERO LOGO
                       Hero(
                         tag: "appLogo",
                         child: const Icon(
                           Icons.shopping_bag,
                           size: 70,
-                          color: Colors.white,
+                          color: AppColors2.white,
                         ),
                       ),
 
@@ -86,7 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                         style: TextStyle(
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: AppColors2.white,
                         ),
                       ),
 
@@ -96,14 +92,13 @@ class _SignUpScreenState extends State<SignUpScreen>
                       glassCard(
                         child: Column(
                           children: [
-
                             /// NAME
                             customField(
                               controller: nameController,
                               hint: "Full Name",
                               icon: Icons.person_outline,
-                              validator: (v) =>
-                                  v!.isEmpty ? "Name required" : null,
+                              validator:
+                                  (v) => v!.isEmpty ? "Name required" : null,
                             ),
 
                             const SizedBox(height: 15),
@@ -158,8 +153,9 @@ class _SignUpScreenState extends State<SignUpScreen>
                                 return null;
                               },
                               suffix: togglePass(() {
-                                setState(() =>
-                                    obscureConfirm = !obscureConfirm);
+                                setState(
+                                  () => obscureConfirm = !obscureConfirm,
+                                );
                               }, obscureConfirm),
                             ),
 
@@ -172,28 +168,31 @@ class _SignUpScreenState extends State<SignUpScreen>
 
                             /// BACK TO LOGIN
                             Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Already have an account ? ",
-                            style: TextStyle(color: Colors.white70),
-                          ),
-                          const SizedBox(width: 5),
-                          GestureDetector(
-                            onTap: () {
-                              // Navigate to sign up screen
-                              AppRouter.navigateAndReplace(context, Routes.login);
-                            },
-                            child: const Text(
-                              "Sign In",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  "Already have an account ? ",
+                                  style: TextStyle(color: AppColors2.white70),
+                                ),
+                                const SizedBox(width: 5),
+                                GestureDetector(
+                                  onTap: () {
+                                    // Navigate to sign up screen
+                                    AppRouter.navigateAndReplace(
+                                      context,
+                                      Routes.login,
+                                    );
+                                  },
+                                  child: const Text(
+                                    "Sign In",
+                                    style: TextStyle(
+                                      color: AppColors2.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
-                      ),
                           ],
                         ),
                       ),
@@ -212,7 +211,6 @@ class _SignUpScreenState extends State<SignUpScreen>
   Widget signupButton() {
     return GestureDetector(
       onTap: () async {
-
         if (!formKey.currentState!.validate()) return;
 
         setState(() {
@@ -239,27 +237,28 @@ class _SignUpScreenState extends State<SignUpScreen>
         width: double.infinity,
 
         decoration: BoxDecoration(
-          color: success ? Colors.green : Colors.white,
+          color: success ? AppColors2.green : AppColors2.white,
           borderRadius: BorderRadius.circular(18),
         ),
 
         child: Center(
           child: AnimatedSwitcher(
             duration: const Duration(milliseconds: 300),
-            child: loading
-                ? const CircularProgressIndicator(
-                    strokeWidth: 2,
-                    color: Colors.black,
-                  )
-                : success
-                    ? const Icon(Icons.check, color: Colors.white)
+            child:
+                loading
+                    ? const CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: AppColors2.black,
+                    )
+                    : success
+                    ? const Icon(Icons.check, color: AppColors2.white)
                     : const Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      "Sign Up",
+                      style: TextStyle(
+                        color: AppColors2.black,
+                        fontWeight: FontWeight.bold,
                       ),
+                    ),
           ),
         ),
       ),
@@ -280,15 +279,15 @@ class _SignUpScreenState extends State<SignUpScreen>
       obscureText: obscureText,
       validator: validator,
 
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(color: AppColors2.white),
 
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: const TextStyle(color: Colors.white54),
-        prefixIcon: Icon(icon, color: Colors.white),
+        hintStyle: const TextStyle(color: AppColors2.white54),
+        prefixIcon: Icon(icon, color: AppColors2.white),
         suffixIcon: suffix,
         filled: true,
-        fillColor: Colors.white.withOpacity(.05),
+        fillColor: AppColors2.white.withOpacity(.05),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(18),
           borderSide: BorderSide.none,
@@ -301,7 +300,7 @@ class _SignUpScreenState extends State<SignUpScreen>
     return IconButton(
       icon: Icon(
         obscure ? Icons.visibility_off : Icons.visibility,
-        color: Colors.white,
+        color: AppColors2.white,
       ),
       onPressed: onTap,
     );
@@ -315,9 +314,9 @@ class _SignUpScreenState extends State<SignUpScreen>
         child: Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(.08),
+            color: AppColors2.white.withOpacity(.08),
             borderRadius: BorderRadius.circular(25),
-            border: Border.all(color: Colors.white.withOpacity(.2)),
+            border: Border.all(color: AppColors2.white.withOpacity(.2)),
           ),
           child: child,
         ),

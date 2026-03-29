@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
@@ -33,9 +34,9 @@ class CustomBottomNavBar extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFF000000), // لون رمادي أغمق
+              AppColors2.black, // لون رمادي أغمق
 
-              Color(0xFF606060), // لون رمادي أغمق
+              AppColors2.darkBorder, // لون رمادي أغمق
             ],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
@@ -43,7 +44,7 @@ class CustomBottomNavBar extends StatelessWidget {
           borderRadius: BorderRadius.circular(40),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(.25),
+              color: AppColors2.black.withOpacity(.25),
               blurRadius: 20,
               offset: const Offset(0, 10),
             ),
@@ -66,8 +67,8 @@ class CustomBottomNavBar extends StatelessWidget {
                 decoration: BoxDecoration(
                   color:
                       currentIndex == index
-                          ? Colors.white
-                          : Colors.transparent,
+                          ? AppColors2.white
+                          : AppColors2.transparent,
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Row(
@@ -75,7 +76,9 @@ class CustomBottomNavBar extends StatelessWidget {
                     Icon(
                       icons[index],
                       color:
-                          currentIndex == index ? Colors.black : Colors.white,
+                          currentIndex == index
+                              ? AppColors2.black
+                              : AppColors2.white,
                       size: currentIndex == index ? 26 * scale : 24 * scale,
                     ),
                     if (currentIndex == index)
@@ -84,7 +87,7 @@ class CustomBottomNavBar extends StatelessWidget {
                         child: Text(
                           _label(index),
                           style: TextStyle(
-                            color: Colors.black,
+                            color: AppColors2.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 13 * scale,
                           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class PromoSlider extends StatefulWidget {
   final double scale;
@@ -12,15 +13,18 @@ class _PromoSliderState extends State<PromoSlider>
     with SingleTickerProviderStateMixin {
   final List<Map<String, String>> promoItems = [
     {
-      'image': 'assets/images/products/ChatGPT Image Mar 16, 2026, 10_44_49 AM.png',
+      'image':
+          'assets/images/products/ChatGPT Image Mar 16, 2026, 10_44_49 AM.png',
       'title': 'Top Trending\nShoes',
     },
     {
-      'image': 'assets/images/products/ChatGPT Image Mar 14, 2026, 10_55_05 AM.png',
+      'image':
+          'assets/images/products/ChatGPT Image Mar 14, 2026, 10_55_05 AM.png',
       'title': 'New Winter\nHoodies',
     },
     {
-      'image': 'assets/images/products/ChatGPT Image Mar 11, 2026, 12_44_47 PM.png',
+      'image':
+          'assets/images/products/ChatGPT Image Mar 11, 2026, 12_44_47 PM.png',
       'title': 'Top Trending\nJackets',
     },
   ];
@@ -54,10 +58,9 @@ class _PromoSliderState extends State<PromoSlider>
     final slide = Tween<Offset>(
       begin: const Offset(0, 0.08),
       end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _enterController,
-      curve: Curves.easeOutCubic,
-    ));
+    ).animate(
+      CurvedAnimation(parent: _enterController, curve: Curves.easeOutCubic),
+    );
 
     return FadeTransition(
       opacity: fade,
@@ -81,8 +84,10 @@ class _PromoSliderState extends State<PromoSlider>
                       if (_controller.hasClients && _controller.page != null) {
                         page = _controller.page!;
                       }
-                      final distance =
-                          (page - index).abs().clamp(0.0, 1.0); // 0..1
+                      final distance = (page - index).abs().clamp(
+                        0.0,
+                        1.0,
+                      ); // 0..1
                       final scale = 1 - (distance * 0.08);
                       final vertical = 12 * distance;
 
@@ -95,13 +100,13 @@ class _PromoSliderState extends State<PromoSlider>
                             vertical: vertical,
                           ),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: AppColors2.white,
                             borderRadius: BorderRadius.circular(
                               24 * widget.scale,
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(.06),
+                                color: AppColors2.black.withOpacity(.06),
                                 blurRadius: 20,
                                 offset: const Offset(0, 8),
                               ),
@@ -122,20 +127,22 @@ class _PromoSliderState extends State<PromoSlider>
                             elevation: 0,
                             margin: EdgeInsets.zero,
                             shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(30),
+                              ),
                             ),
                             child: Container(
                               height: 143 * widget.scale,
                               width: 170 * widget.scale,
                               decoration: const BoxDecoration(
-                                color: Color.fromARGB(255, 245, 246, 247),
+                                color: AppColors2.veryLight,
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(30),
                                 ),
                               ),
                               child: Image.asset(
                                 promoItems[index]['image']!,
-                                
+
                                 width: 100 * widget.scale,
                               ),
                             ),
@@ -168,8 +175,8 @@ class _PromoSliderState extends State<PromoSlider>
                                 decoration: const BoxDecoration(
                                   gradient: LinearGradient(
                                     colors: [
-                                      Color(0xFF000000),
-                                      Color(0xFF606060),
+                                      AppColors2.black,
+                                      AppColors2.darkBorder,
                                     ],
                                     begin: Alignment.bottomCenter,
                                     end: Alignment.topCenter,
@@ -181,7 +188,7 @@ class _PromoSliderState extends State<PromoSlider>
                                 child: Text(
                                   "Shop Now",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: AppColors2.white,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 14 * widget.scale,
                                   ),
@@ -207,9 +214,10 @@ class _PromoSliderState extends State<PromoSlider>
                   height: 6,
                   width: currentIndex == index ? 20 : 6,
                   decoration: BoxDecoration(
-                    color: currentIndex == index
-                        ? Colors.black
-                        : Colors.grey.shade400,
+                    color:
+                        currentIndex == index
+                            ? AppColors2.black
+                            : Colors.grey.shade400,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),

@@ -28,47 +28,49 @@ class CustomSubmitBtn extends StatelessWidget {
         child: ElevatedButton(
           onPressed: enabled && !isLoading ? onPressed : null,
           style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white, // 👈 مهم
+            foregroundColor: AppColors2.white, // 👈 مهم
 
-            backgroundColor: Colors.transparent,
-            shadowColor: const Color.fromARGB(255, 16, 17, 17).withOpacity(0.3),
+            backgroundColor: AppColors2.transparent,
+            shadowColor: AppColors2.blackHard.withOpacity(0.3),
             elevation: 8,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12.r),
             ),
           ),
-          child: !isLoading
-              ? Container(
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color.fromARGB(255, 0, 0, 0), Color.fromARGB(255, 42, 43, 43)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+          child:
+              !isLoading
+                  ? Container(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [AppColors2.black, AppColors2.charcoal],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      text,
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors2.white,
+                        fontFamily: 'SofiaSans',
+                      ),
+                    ),
+                  )
+                  : SizedBox(
+                    height: 24.h,
+                    width: 24.w,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2.5,
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        AppColors2.textOnPrimary,
+                      ),
+                    ),
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  text,
-                  style:  TextStyle(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontFamily: 'SofiaSans',
-                  ),
-                ),
-              )
-              : SizedBox(
-                  height: 24.h,
-                  width: 24.w,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2.5,
-                    valueColor: AlwaysStoppedAnimation<Color>(AppColors2.textOnPrimary),
-                  ),
-                ),
         ),
       ),
     );
   }
 }
-

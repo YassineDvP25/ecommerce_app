@@ -9,8 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'routes.dart';
 import 'package:ecommerce/features/auth/login/view/login_screen.dart';
 
-
-
 /// Application Router
 class AppRouter {
   AppRouter._();
@@ -66,8 +64,8 @@ class AppRouter {
           },
         );
       case Routes.login:
-      return _buildRoute(const LoginScreen(), settings);
-        
+        return _buildRoute(const LoginScreen(), settings);
+
       case Routes.signup:
         return PageRouteBuilder(
           settings: settings,
@@ -81,7 +79,9 @@ class AppRouter {
             final slide = Tween(
               begin: const Offset(0.0, 0.3),
               end: Offset.zero,
-            ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic));
+            ).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
+            );
             return FadeTransition(
               opacity: fade,
               child: SlideTransition(position: slide, child: child),
@@ -95,7 +95,6 @@ class AppRouter {
           ),
           settings,
         );
-
     }
   }
 

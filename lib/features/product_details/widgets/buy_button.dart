@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class BuyButton extends StatelessWidget {
   final double price;
@@ -23,7 +24,7 @@ class BuyButton extends StatelessWidget {
         width: 400,
         height: 70,
         decoration: BoxDecoration(
-          color: const Color(0xFFF2F2F2),
+          color: AppColors2.cardBackground,
           borderRadius: BorderRadius.circular(40),
         ),
         padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -42,7 +43,7 @@ class BuyButton extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                        color: AppColors2.black87,
                       ),
                     ),
                   ),
@@ -71,7 +72,7 @@ class BuyButton extends StatelessWidget {
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
+                            color: AppColors2.black.withOpacity(0.2),
                             blurRadius: 10,
                             offset: const Offset(0, 4),
                           ),
@@ -81,7 +82,10 @@ class BuyButton extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.shopping_bag_outlined,
-                            color: lightProduct ? Colors.black : Colors.white,
+                            color:
+                                lightProduct
+                                    ? AppColors2.black
+                                    : AppColors2.white,
                             size: 20,
                           ),
                           const SizedBox(width: 8),
@@ -90,7 +94,10 @@ class BuyButton extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: lightProduct ? Colors.black : Colors.white,
+                              color:
+                                  lightProduct
+                                      ? AppColors2.black
+                                      : AppColors2.white,
                             ),
                           ),
                         ],

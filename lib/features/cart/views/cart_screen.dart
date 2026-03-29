@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce/features/cart/models/cart_item.dart';
 import 'package:ecommerce/features/cart/widgets/cart_item_card.dart';
 import 'package:ecommerce/features/cart/widgets/summary_section.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 // CartItem model moved to models/cart_item.dart
 
@@ -76,14 +77,17 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
     final isTablet = size.width >= 600;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: AppColors2.scaffoldBackground,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors2.white,
         elevation: 0,
         centerTitle: true,
         title: const Text(
           'Cart',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+          style: TextStyle(
+            color: AppColors2.black,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         automaticallyImplyLeading: false,
       ),
@@ -127,9 +131,6 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
                     //     ),
                     //   ),
                     // ),
-                    
-
-                  
                     Expanded(
                       child: ListView.builder(
                         itemCount: items.length,
@@ -164,12 +165,12 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
                                       horizontal: 20,
                                     ),
                                     decoration: BoxDecoration(
-                                      color: Colors.redAccent,
+                                      color: AppColors2.redAccent,
                                       borderRadius: BorderRadius.circular(20),
                                     ),
                                     child: const Icon(
                                       Icons.delete,
-                                      color: Colors.white,
+                                      color: AppColors2.white,
                                     ),
                                   ),
                                   child: CartItemCard(
@@ -195,4 +196,3 @@ class _CartScreenState extends State<CartScreen> with TickerProviderStateMixin {
     );
   }
 }
-

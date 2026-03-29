@@ -56,22 +56,23 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors2.white,
           borderRadius: BorderRadius.circular(12.r),
-          boxShadow: _focusNode.hasFocus
-              ? [
-                  BoxShadow(
-                    color: AppColors2.primary.withOpacity(0.3),
-                    blurRadius: 20.r,
-                    spreadRadius: 0,
-                  ),
-                ]
-              : [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
-                    blurRadius: 10.r,
-                  ),
-                ],
+          boxShadow:
+              _focusNode.hasFocus
+                  ? [
+                    BoxShadow(
+                      color: AppColors2.primary.withOpacity(0.3),
+                      blurRadius: 20.r,
+                      spreadRadius: 0,
+                    ),
+                  ]
+                  : [
+                    BoxShadow(
+                      color: AppColors2.black.withOpacity(0.05),
+                      blurRadius: 10.r,
+                    ),
+                  ],
         ),
         child: TextFormField(
           controller: widget.controller,
@@ -80,7 +81,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           validator: widget.validator,
           onFieldSubmitted: (_) => widget.onSubmitted?.call(),
           focusNode: _focusNode,
-          style:  TextStyle(
+          style: TextStyle(
             fontSize: 16.sp,
             color: AppColors2.textPrimary,
             fontFamily: 'SofiaSans',
@@ -88,15 +89,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
           decoration: InputDecoration(
             labelText: widget.label?.tr(),
             hintText: widget.hint?.tr(),
-            prefixIcon: widget.prefixIcon != null
-                ? Icon(
-                    widget.prefixIcon,
-                    color: _focusNode.hasFocus
-                        ? AppColors2.primary
-                        : AppColors2.textSecondary,
-                    size: 20.w,
-                  )
-                : null,
+            prefixIcon:
+                widget.prefixIcon != null
+                    ? Icon(
+                      widget.prefixIcon,
+                      color:
+                          _focusNode.hasFocus
+                              ? AppColors2.primary
+                              : AppColors2.textSecondary,
+                      size: 20.w,
+                    )
+                    : null,
             suffixIcon: widget.suffixIcon,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12.r),
@@ -110,13 +113,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
               borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide(color: AppColors2.primary, width: 2),
             ),
-            contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+              vertical: 16.h,
+            ),
             filled: true,
-            fillColor: Colors.white,
+            fillColor: AppColors2.white,
           ),
         ),
       ),
     );
   }
 }
-

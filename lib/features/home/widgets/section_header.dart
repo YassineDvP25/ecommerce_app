@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce/core/theme/colors.dart';
 
 class SectionHeader extends StatelessWidget {
   final String title;
@@ -15,7 +16,7 @@ class SectionHeader extends StatelessWidget {
           style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: AppColors2.black,
           ),
         ),
         const Text(
