@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce/features/cart/models/cart_item.dart';
 import 'package:ecommerce/features/cart/widgets/bounce_button.dart';
 import 'package:ecommerce/core/theme/colors.dart';
+import 'package:ecommerce/core/theme/typography.dart';
 
 class CartItemCard extends StatelessWidget {
   final CartItem item;
@@ -48,25 +49,13 @@ class CartItemCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  item.title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14,
-                  ),
-                ),
+                Text(item.title, style: AppTypography.bodyMediumCustom),
                 const SizedBox(height: 4),
-                const Text(
-                  'Size : XL',
-                  style: TextStyle(color: Colors.grey, fontSize: 12),
-                ),
+                Text('Size : XL', style: AppTypography.bodySmallCustom),
                 const SizedBox(height: 6),
                 Text(
                   '\$${item.price.toStringAsFixed(0)}',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
+                  style: AppTypography.priceSmall,
                 ),
               ],
             ),

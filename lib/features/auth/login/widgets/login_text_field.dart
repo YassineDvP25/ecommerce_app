@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce/core/theme/colors.dart';
+import 'package:ecommerce/core/theme/typography.dart';
 
 class LoginTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -25,15 +26,15 @@ class LoginTextField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       validator: validator,
-      style: const TextStyle(color: AppColors2.white),
+      style: AppTypography.input,
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: const TextStyle(color: AppColors2.white54),
+        hintStyle: AppTypography.hint,
         prefixIcon: Icon(icon, color: AppColors2.white),
         suffixIcon: suffix,
         filled: true,
         fillColor: AppColors2.white.withOpacity(.05),
-        errorStyle: const TextStyle(color: AppColors2.redAccent),
+        errorStyle: AppTypography.error,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(18),
           borderSide: BorderSide.none,

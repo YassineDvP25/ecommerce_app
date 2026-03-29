@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'colors.dart';
 
 /// Application Typography
 /// Centralized text style definitions
@@ -113,5 +114,97 @@ class AppTypography {
     fontSize: 11,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.5,
+  );
+
+  // Custom Text Styles for App
+  static TextStyle buttonPrimary = AppTypography.buttonPrimary;
+
+  static TextStyle titleLarge = GoogleFonts.inter(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: AppColors2.black,
+  );
+
+  static TextStyle titleMedium = GoogleFonts.inter(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: AppColors2.black,
+  );
+
+  static TextStyle titleSmall = GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    color: AppColors2.black,
+  );
+
+  static TextStyle bodyLargeBold = GoogleFonts.inter(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: AppColors2.black,
+  );
+
+  static TextStyle bodyMediumCustom = GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColors2.black,
+  );
+
+  static TextStyle bodySmallCustom = GoogleFonts.inter(
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    color: Colors.grey,
+  );
+
+  static TextStyle priceLarge = GoogleFonts.inter(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: AppColors2.black,
+  );
+
+  static TextStyle priceMedium = GoogleFonts.inter(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: AppColors2.black,
+  );
+
+  static TextStyle priceSmall = GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    color: AppColors2.black,
+  );
+
+  static TextStyle captionGrey = GoogleFonts.inter(
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    color: Colors.grey,
+  );
+
+  static TextStyle link = GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    color: Colors.grey,
+  );
+
+  static TextStyle quantity = GoogleFonts.inter(
+    fontWeight: FontWeight.w600,
+    color: AppColors2.black,
+  );
+
+  static TextStyle error = GoogleFonts.inter(
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    color: AppColors2.redAccent,
+  );
+
+  static TextStyle hint = GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: AppColors2.white54,
+  );
+
+  static TextStyle input = GoogleFonts.inter(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: AppColors2.white,
   );
 }

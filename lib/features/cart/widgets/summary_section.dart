@@ -1,6 +1,7 @@
 import 'package:ecommerce/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/core/theme/colors.dart';
+import 'package:ecommerce/core/theme/typography.dart';
 
 class SummarySection extends StatefulWidget {
   final double subtotal;
@@ -133,13 +134,9 @@ class _SummarySectionState extends State<SummarySection> {
                     borderRadius: BorderRadius.circular(25),
                   ),
                 ),
-                child: const Text(
+                child: Text(
                   'Proceed To Checkout',
-                  style: TextStyle(
-                    color: AppColors2.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTypography.bodyLargeBold,
                 ),
               ),
             ),

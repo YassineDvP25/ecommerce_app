@@ -3,6 +3,7 @@ import 'package:ecommerce/core/routes/app_router.dart';
 import 'package:ecommerce/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/core/theme/colors.dart';
+import 'package:ecommerce/core/theme/typography.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -279,11 +280,11 @@ class _SignUpScreenState extends State<SignUpScreen>
       obscureText: obscureText,
       validator: validator,
 
-      style: const TextStyle(color: AppColors2.white),
+      style: AppTypography.input,
 
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: const TextStyle(color: AppColors2.white54),
+        hintStyle: AppTypography.hint,
         prefixIcon: Icon(icon, color: AppColors2.white),
         suffixIcon: suffix,
         filled: true,

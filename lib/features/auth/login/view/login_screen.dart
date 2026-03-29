@@ -5,6 +5,7 @@ import 'package:ecommerce/features/auth/login/widgets/custom_submit_btn.dart';
 import 'package:ecommerce/features/auth/login/widgets/social_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/core/theme/colors.dart';
+import 'package:ecommerce/core/theme/typography.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -271,11 +272,11 @@ class _LoginScreenState extends State<LoginScreen>
       obscureText: obscureText,
       validator: validator,
 
-      style: const TextStyle(color: AppColors2.white),
+      style: AppTypography.input,
 
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: const TextStyle(color: AppColors2.white54),
+        hintStyle: AppTypography.hint,
 
         prefixIcon: Icon(icon, color: AppColors2.white),
 
@@ -284,7 +285,7 @@ class _LoginScreenState extends State<LoginScreen>
         filled: true,
         fillColor: AppColors2.white.withOpacity(.05),
 
-        errorStyle: const TextStyle(color: AppColors2.redAccent),
+        errorStyle: AppTypography.error,
 
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(18),
