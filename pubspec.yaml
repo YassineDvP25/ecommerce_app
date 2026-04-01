@@ -84,6 +84,7 @@ flutter:
     - assets/lang/
     - assets/fonts/
     - assets/icons/
+    - assets/lottie/
 
   fonts:
     - family: SofiaSans
